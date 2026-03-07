@@ -1,5 +1,5 @@
 
-# Fires NASA FIRMS Fires Unofficial Integration for Home Assistant
+# Fires NASA FIRMS Unofficial Integration for Home Assistant
 ## Fire Information Research Maintenence Service
 
 [![HACS Custom](https://img.shields.io/badge/HACS-Custom-41bdf5.svg?style=for-the-badge)](https://hacs.xyz/docs/publish/start)
