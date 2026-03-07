@@ -18,7 +18,7 @@ It displays detected fires as geo_location entities on your HA map, with distanc
 - Fetches real-time fire data from NASA FIRMS within a configurable radius.
 - Filters by confidence level (low, nominal, high).
 - Displays each fire as a geo_location entity with distance (km/mi) as state.
-- Customizable scan interval, days back, and units.
+- ~~Customizable scan interval,~~ days back, and units.
 - Supports multiple data sources (VIIRS SNPP, MODIS, VIIRS NOAA-20).
 - Multi-language support.
 - Attributes include latitude, longitude, brightness, FRP, local acquisition time/date, and more.
@@ -32,13 +32,13 @@ It displays detected fires as geo_location entities on your HA map, with distanc
 
 ## Installation
 
-### Via HACS (Recommended)
-1. Open HACS in Home Assistant: **HACS > Integrations**.
+### ~~Via HACS (Recommended)~~
+~~1. Open HACS in Home Assistant: **HACS > Integrations**.
 2. Click the three dots (⋮) > **Custom repositories**.
 3. Add repository: URL = `https://github.com/janfajessen/Fires-NASA-FIRMS-Unofficial`, Category = "Integration".
 4. Search for "NASA FIRMS Fires" in HACS and install.
 5. Restart Home Assistant.
-6. Add the integration: **Settings > Devices & Services > Add Integration > NASA FIRMS Fires**.
+6. Add the integration: **Settings > Devices & Services > Add Integration > NASA FIRMS Fires**.~~
 
 ### Manual Installation
 1. Download the latest release ZIP from [Releases](https://github.com/janfajessen/Fires-NASA-FIRMS-Unofficial/releases).
@@ -59,7 +59,7 @@ Go to **Settings > Devices & Services > Add Integration > NASA FIRMS Fires**.
 - **Days Back**: 1-5 days.
 - **Update Interval**: 5-120 minutes.
 
-Options can be changed later via the integration's Options menu.
+~~Options can be changed later via the integration's Options menu.~~
 
 ## Usage
 - Fires appear as geo_location entities (e.g., `geo_location.high_conf_fire_nasa_firms_39_46_0_37`).
