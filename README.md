@@ -44,6 +44,7 @@ This is an unofficial custom integration for Home Assistant that fetches active 
 4. Add the integration as above.
 
 ## Configuration
+<img src="https://raw.githubusercontent.com/janfajessen/Fires-NASA-FIRMS-Unofficial/refs/heads/main/config_flow.png" width="100"/>
 Go to **Settings > Devices & Services > Add Integration > NASA FIRMS Fires**.
 
 - **API Key**: Your NASA FIRMS key.
