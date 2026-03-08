@@ -1,74 +1,158 @@
-
 # Fires NASA FIRMS Unofficial Integration for Home Assistant
-##  Fire Information for Resource Management System
 
-<img src="https://raw.githubusercontent.com/janfajessen/Fires-NASA-FIRMS-Unofficial/refs/heads/main/logo.png" width="150"/>
+## Fire Information for Resource Management System
+
+[![](https://raw.githubusercontent.com/janfajessen/Fires-NASA-FIRMS-Unofficial/refs/heads/main/logo.png)](https://firms.modaps.eosdis.nasa.gov)
 
 [![HACS Custom](https://img.shields.io/badge/HACS-Custom-41bdf5.svg?style=for-the-badge)](https://hacs.xyz/docs/publish/start)
-[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-Donate-yellow.svg?style=for-the-badge)](https://www.buymeacoffee.com/janfajessen)  <!-- Reemplaza con tu link -->
-[![Patreon](https://img.shields.io/badge/Patreon-Support-red.svg?style=for-the-badge)](https://www.patreon.com/janfajessen)  <!-- Reemplaza con tu link -->
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-Donate-yellow.svg?style=for-the-badge)](https://www.buymeacoffee.com/janfajessen)
+[![Patreon](https://img.shields.io/badge/Patreon-Support-red.svg?style=for-the-badge)](https://www.patreon.com/janfajessen)
 
-This is an unofficial custom integration for Home Assistant that fetches active fire data from NASA's FIRMS API <br>
-(Fire Information for Resource Management System). <br>
-It displays detected fires as geo_location entities on your HA map, with distance from home as state, and detailed attributes like confidence level, acquisition time, and more.
+This is an unofficial custom integration for Home Assistant that fetches active fire data from NASA's FIRMS API (Fire Information for Resource Management System).  
+It displays detected fires as `geo_location` entities on your HA map, with distance from home as state, and detailed attributes like confidence level, acquisition time, and more.
 
-[<img src="https://raw.githubusercontent.com/janfajessen/Fires-NASA-FIRMS-Unofficial/refs/heads/main/Map_NASA_FIRMS.png" width="200"/>](https://firms.modaps.eosdis.nasa.gov/map/#d:24hrs;@20.1,31.3,4.5z)
+[![](https://raw.githubusercontent.com/janfajessen/Fires-NASA-FIRMS-Unofficial/refs/heads/main/Map_NASA_FIRMS.png)](https://firms.modaps.eosdis.nasa.gov/map/#d:24hrs;@20.1,31.3,4.5z)
+
+---
 
 ## Features
+
 - Fetches real-time fire data from NASA FIRMS within a configurable radius.
 - Filters by confidence level (low, nominal, high).
-- Displays each fire as a geo_location entity with distance (km/mi) as state.
-- ~~Customizable scan interval,~~ days back, and units.
-- Supports multiple data sources (VIIRS SNPP, MODIS, VIIRS NOAA-20).
-- Multi-language support.
-- Attributes include latitude, longitude, brightness, FRP, local acquisition time/date, and more.
-- Multiple instances supported for different locations/configs.
+- Displays each fire as a `geo_location` entity with distance (km/mi) as state.
+- **Customizable scan interval** (5–120 minutes) — fires update automatically on schedule.
+- **Multiple satellite sources** — choose one or more: VIIRS SNPP, MODIS, VIIRS NOAA-20, VIIRS NOAA-21.
+- **Automatic cross-satellite deduplication** — same fire detected by multiple satellites appears only once (best confidence/FRP kept).
+- Configurable days back (1–5) and search radius (10–500 km).
+- **Multiple instances** supported — up to 10 simultaneous instances for different locations or configurations.
+- Multi-language support (EN, ES — other languages fall back to EN).
+- Attributes include latitude, longitude, brightness, FRP, local acquisition time/date, satellite source, and more.
+- **Options can be changed** at any time via the integration's ⚙️ Options menu without data loss.
+
+---
+
+## Satellite Sources
+
+All four sources detect active fire/thermal anomalies. The difference is timing and resolution:
+
+| Source | Resolution | Daily passes | Notes |
+|---|---|---|---|
+| VIIRS SNPP | 375 m | ~2 | Active since 2012 |
+| MODIS | 1 km | ~4 | Older, lower resolution, more passes |
+| VIIRS NOAA-20 | 375 m | ~2 | Active since 2018 |
+| VIIRS NOAA-21 | 375 m | ~2 | Active since Jan 2024, newest |
+
+Using multiple sources together gives better temporal coverage (fires detected at different times of day). Duplicates are removed automatically.
+
+---
 
 ## Requirements
-- Home Assistant 2026.2 or later.
+
+- Home Assistant **2026.2** or later.
 - API key from [NASA FIRMS](https://firms.modaps.eosdis.nasa.gov/api/) (free, quick signup).
-- Dependencies:
-  `aiohttp>=3.8.0`, `haversine>=2.8.0` (installed automatically via HA).
+- Dependencies: `aiohttp>=3.8.0`, `haversine>=2.8.0` (installed automatically via HA).
+
+---
 
 ## Installation
 
-### ~~Via HACS (Recommended)~~
-~~1. Open HACS in Home Assistant: **HACS > Integrations**.
+### Via HACS (Recommended)
+
+1. Open HACS in Home Assistant: **HACS > Integrations**.
 2. Click the three dots (⋮) > **Custom repositories**.
-3. Add repository: URL = `https://github.com/janfajessen/Fires-NASA-FIRMS-Unofficial`, Category = "Integration".
-4. Search for "NASA FIRMS Fires" in HACS and install.
+3. Add repository URL: `https://github.com/janfajessen/Fires-NASA-FIRMS-Unofficial`, Category = `Integration`.
+4. Search for **"NASA FIRMS Fires"** in HACS and install.
 5. Restart Home Assistant.
-6. Add the integration: **Settings > Devices & Services > Add Integration > NASA FIRMS Fires**.~~
+6. Add the integration: **Settings > Devices & Services > Add Integration > NASA FIRMS Fires (Unofficial)**.
 
 ### Manual Installation
-1. Download the files ZIP in <img src="https://raw.githubusercontent.com/janfajessen/Fires-NASA-FIRMS-Unofficial/refs/heads/main/code.png" width="50"/>
-2. Extract to `/config/custom_components/firms_nasa_fires/`.
-3. Or in <img src="https://raw.githubusercontent.com/janfajessen/Fires-NASA-FIRMS-Unofficial/refs/heads/main/code.png" width="50"/> Copy url, open HACS, custom repository, integration, add and install.
-4. Restart Home Assistant.
-5. Add the integration as above.
+
+1. Download or clone this repository.
+2. Copy the `firms_nasa_fires/` folder to `/config/custom_components/firms_nasa_fires/`.
+3. Restart Home Assistant.
+4. Add the integration: **Settings > Devices & Services > Add Integration > NASA FIRMS Fires (Unofficial)**.
+
+---
 
 ## Configuration
-<img src="https://raw.githubusercontent.com/janfajessen/Fires-NASA-FIRMS-Unofficial/refs/heads/main/config_flow.png" width="200"/>
+
+[![](https://raw.githubusercontent.com/janfajessen/Fires-NASA-FIRMS-Unofficial/refs/heads/main/config_flow.png)](https://raw.githubusercontent.com/janfajessen/Fires-NASA-FIRMS-Unofficial/refs/heads/main/config_flow.png)
+
 Go to **Settings > Devices & Services > Add Integration > NASA FIRMS Fires (Unofficial)**.
 
-- **API Key**: Your NASA FIRMS key.
-- **Latitude/Longitude**: Custom location (defaults to HA home).
-- **Radius (km)**: Search area 10-500 km (6,2-310,7 Ml).
-- **Units**: km or mi.
-- **Min Confidence**: Low, Nominal, High.
-- **Source**: VIIRS SNPP, MODIS, VIIRS NOAA-20.
-- **Days Back**: 1-5 days.
-- **Update Interval**: 5-120 minutes.
+| Parameter | Description |
+|---|---|
+| **API Key** | Your NASA FIRMS key (get it free at [firms.modaps.eosdis.nasa.gov/api](https://firms.modaps.eosdis.nasa.gov/api/)) |
+| **Latitude / Longitude** | Center of the search area (defaults to HA home) |
+| **Search radius** | 10–500 km (6.2–310.7 mi). Always defined in km; miles only affect how distances are displayed. |
+| **Distance unit** | km or mi — controls the state value of each fire entity |
+| **Min confidence** | Low (all), Nominal+High, or High only |
+| **Data sources** | One or more satellite sources (multi-select) |
+| **Days back** | 1–5 days of historical data to include |
+| **Update interval** | 5–120 minutes between automatic data refreshes |
 
-~~Options can be changed later via the integration's Options menu.~~
+**All options can be modified later** via the ⚙️ button on the integration card.
+
+---
+
+## Multiple Instances
+
+You can add up to **10 simultaneous instances**, each with its own location, radius, sources, and update interval. Useful for monitoring multiple regions or comparing satellite sources independently.
+
+Each instance runs its own independent update schedule — they do not interfere with each other.
+
+---
 
 ## Usage
-- Fires appear as geo_location entities (e.g., `geo_location.high_conf_fire_nasa_firms_39_46_0_37`).
-- View on HA Map: Distance from coordinates as state.
-- Attributes: Confidence, brightness, FRP, local time/date, etc.
-- Automations suggest: Trigger on new fires or distance changes.
+
+- Fires appear as `geo_location` entities (e.g., `geo_location.high_conf_fire_nasa_firms_42_81_1_54`).
+- View on HA Map: fires are shown as pins at their detected location.
+- Entity **state** = distance from the configured coordinates (in km or mi).
+- Entities are automatically removed when a fire is no longer detected in the latest data.
+
+### Entity Attributes
+
+| Attribute | Description |
+|---|---|
+| `latitude` / `longitude` | Fire location |
+| `brightness` | Primary brightness (source-independent) |
+| `brightness_ti4` / `brightness_ti5` | VIIRS-specific brightness channels |
+| `brightness_t31` | MODIS-specific secondary brightness |
+| `frp` | Fire Radiative Power (MW) — energy intensity |
+| `confidence` / `confidence_level` / `confidence_name` | Raw value, normalized level (l/n/h), human name |
+| `acquisition_date` / `acquisition_time` | UTC detection time |
+| `acquisition_local_date` / `acquisition_local_time` | Detection time in HA timezone |
+| `satellite` / `instrument` | Which satellite/sensor detected the fire |
+| `source` | API source identifier (e.g., `VIIRS_SNPP_NRT`) |
+| `daynight` | D (day) or N (night) pass |
+| `distance_km` | Distance in km regardless of display unit |
+| `scan` / `track` | Pixel size at detection angle |
+| `attribution` | Data credit (NASA FIRMS) |
+
+### Automation Example
+
+```yaml
+automation:
+  - alias: "Alert: High confidence fire within 50 km"
+    trigger:
+      - platform: state
+        entity_id: geo_location.high_conf_fire_nasa_firms_*
+    condition:
+      - condition: template
+        value_template: "{{ trigger.to_state.state | float < 50 }}"
+    action:
+      - service: notify.mobile_app
+        data:
+          title: "🔥 Fire detected!"
+          message: >
+            {{ trigger.to_state.name }} detected
+            {{ trigger.to_state.state }} km away.
+```
+
+---
 
 ## Support & Donations
+
 If you like this integration, consider supporting development!
 
 [![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-Donate-yellow.svg?style=for-the-badge)](https://www.buymeacoffee.com/janfajessen)
@@ -76,10 +160,41 @@ If you like this integration, consider supporting development!
 
 Issues? Open one on [GitHub](https://github.com/janfajessen/Fires-NASA-FIRMS-Unofficial/issues).
 
-This integration should only be used for your own educational purposes.
+> This integration is for personal and educational use only. Data is provided by NASA FIRMS.
+
+---
+
+## Changelog
+
+### v1.3.0
+- **Fix:** Automatic scan interval now works correctly (`config_entry` parameter added to `DataUpdateCoordinator`).
+- **Fix:** Entities now recreate correctly after reload/options change (session-local tracking instead of persistent entity registry).
+- **Fix:** Options menu (⚙️) no longer throws Error 500 (OptionsFlow updated for HA 2024.11+ API).
+- **Fix:** MODIS brightness fields now read correctly (`brightness`/`bright_t31` instead of VIIRS-only `bright_ti4`/`bright_ti5`).
+- **Fix:** `async_remove()` updated — removed deprecated `force_remove=True` parameter.
+- **Fix:** Replaced deprecated `async_timeout` with `asyncio.timeout` (Python 3.11+).
+- **Fix:** Selector translations now display correctly (label keys aligned with JSON translation files).
+- **Fix:** Slider units no longer show literal strings (`days_unit`, `minutes_unit` → `days`, `min`).
+- **Fix:** Memory leak — Options change listener no longer duplicates on each reload.
+- **New:** Added **VIIRS NOAA-21** as a fourth satellite source.
+- **New:** **Multi-select** for satellite sources — choose one or more simultaneously.
+- **New:** **Automatic deduplication** — same fire from multiple satellites appears only once (best confidence/FRP kept).
+- **New:** Parallel API fetching — multiple sources fetched simultaneously for faster updates.
+- **New:** Up to **10 simultaneous instances** supported, with duplicate location detection.
+- **New:** `source` attribute added to each fire entity.
+- **New:** `brightness` attribute added as source-independent alias.
+- **New:** Radius label shows km/mi equivalent for reference.
+- **New:** `source_required` validation error when no source is selected.
+
+### v1.3.2
+- Initial public release.
+
+---
+
 ## License
+
 MIT License. See [LICENSE](LICENSE) for details.
 
 ---
 
-Thanks for using NASA FIRMS Fires! If you have feedback, star the repo or contribute.
+Thanks for using NASA FIRMS Fires! If you have feedback, star the repo ⭐ or contribute.
