@@ -2,7 +2,9 @@
 
 ## Fire Information for Resource Management System
 
-[![](https://raw.githubusercontent.com/janfajessen/Fires-NASA-FIRMS-Unofficial/refs/heads/main/logo.png)](https://firms.modaps.eosdis.nasa.gov)
+<a href="https://firms.modaps.eosdis.nasa.gov">
+  <img src="https://raw.githubusercontent.com/janfajessen/Fires-NASA-FIRMS-Unofficial/refs/heads/main/logo.png" width="150"/>
+</a>
 
 [![HACS Custom](https://img.shields.io/badge/HACS-Custom-41bdf5.svg?style=for-the-badge)](https://hacs.xyz/docs/publish/start)
 [![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-Donate-yellow.svg?style=for-the-badge)](https://www.buymeacoffee.com/janfajessen)
@@ -11,7 +13,9 @@
 This is an unofficial custom integration for Home Assistant that fetches active fire data from NASA's FIRMS API (Fire Information for Resource Management System).  
 It displays detected fires as `geo_location` entities on your HA map, with distance from home as state, and detailed attributes like confidence level, acquisition time, and more.
 
-[![](https://raw.githubusercontent.com/janfajessen/Fires-NASA-FIRMS-Unofficial/refs/heads/main/Map_NASA_FIRMS.png)](https://firms.modaps.eosdis.nasa.gov/map/#d:24hrs;@20.1,31.3,4.5z)
+<a href="https://firms.modaps.eosdis.nasa.gov/map/#d:24hrs;@20.1,31.3,4.5z">
+  <img src="https://raw.githubusercontent.com/janfajessen/Fires-NASA-FIRMS-Unofficial/refs/heads/main/Map_NASA_FIRMS.png" width="200"/>
+</a>
 
 ---
 
@@ -76,7 +80,10 @@ Using multiple sources together gives better temporal coverage (fires detected a
 
 ## Configuration
 
-[![](https://raw.githubusercontent.com/janfajessen/Fires-NASA-FIRMS-Unofficial/refs/heads/main/config_flow.png)](https://raw.githubusercontent.com/janfajessen/Fires-NASA-FIRMS-Unofficial/refs/heads/main/config_flow.png)
+<a>
+<img src="https://raw.githubusercontent.com/janfajessen/Fires-NASA-FIRMS-Unofficial/refs/heads/main/config_flow.png" width="300"/>
+</a>
+[![]()](https://raw.githubusercontent.com/janfajessen/Fires-NASA-FIRMS-Unofficial/refs/heads/main/config_flow.png)
 
 Go to **Settings > Devices & Services > Add Integration > NASA FIRMS Fires (Unofficial)**.
 
