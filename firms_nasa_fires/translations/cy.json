@@ -1,0 +1,79 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Tanau NASA FIRMS",
+        "description": "Ffurfio paramedrau i gael tanau a ganfuwyd gan NASA FIRMS.",
+        "data": {
+          "api_key": "Allwedd API",
+          "latitude": "Lledred",
+          "longitude": "Hydred",
+          "radius_km": "Radiws chwilio mewn km (6.2-310.7 mi)",
+          "units": "Uned pellter",
+          "min_confidence": "Lefel ymddiriedaeth leiaf",
+          "source": "Ffynonellau data",
+          "days": "Diwrnodau i edrych yn ôl",
+          "scan_interval": "Cyfwng diweddaru (munudau)"
+        },
+        "data_description": {
+          "api_key": "Cael eich allwedd yn https://firms.modaps.eosdis.nasa.gov/api/",
+          "source": "Dewiswch un neu fwy o ffynonellau lloeren. Defnyddio ffynonellau lluosog yn rhoi gwell sylw amserol (tanau a ganfuwyd ar amseroedd gwahanol o'r dydd). Dyblygiadau yn cael eu dileu'n awtomatig.",
+          "radius_km": "Mae'r ardal chwilio bob amser wedi'i ddiffinio mewn km. Mae milltiroedd yn effeithio dim ond ar sut y dangosir pellteroedd tanau mewn cyflwr entiti."
+        }
+      }
+    },
+    "error": {
+      "api_key_invalid": "Mae'r allwedd API yn annilys. Rhaid iddo fod o leiaf 10 nod o hyd.",
+      "source_required": "Rhaid dewis o leiaf un ffynhonnell data."
+    },
+    "abort": {
+      "already_configured": "Mae'r integreiddiad hwn eisoes wedi'i ffurfweddu ar gyfer y lleoliad hwn.",
+      "max_instances_reached": "Uchafswm nifer yr achosion wedi'i gyrraedd (10). Dileu achos presennol cyn ychwanegu un newydd."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Opsiynau ar gyfer Tanau NASA FIRMS",
+        "data": {
+          "radius_km": "Radiws chwilio mewn km (6.2-310.7 mi)",
+          "units": "Uned pellter",
+          "min_confidence": "Lefel ymddiriedaeth leiaf",
+          "source": "Ffynonellau data",
+          "days": "Diwrnodau i edrych yn ôl",
+          "scan_interval": "Cyfwng diweddaru (munudau)"
+        },
+        "data_description": {
+          "source": "Dewiswch un neu fwy o ffynonellau lloeren. Dyblygiadau yn cael eu dileu'n awtomatig.",
+          "radius_km": "Mae'r ardal chwilio bob amser wedi'i ddiffinio mewn km. Mae milltiroedd yn effeithio dim ond ar sut y dangosir pellteroedd tanau mewn cyflwr entiti."
+        }
+      }
+    },
+    "error": {
+      "source_required": "Rhaid dewis o leiaf un ffynhonnell data."
+    }
+  },
+  "selector": {
+    "units": {
+      "options": {
+        "km": "Kilometrau",
+        "mi": "Milltiroedd"
+      }
+    },
+    "confidence": {
+      "options": {
+        "l": "Pob un (isel, enwol, uchel)",
+        "n": "Enwol ac uchel (argymhellir)",
+        "h": "Uchel yn unig"
+      }
+    },
+    "source": {
+      "options": {
+        "viirs_snpp": "VIIRS SNPP — cydraniad 375 m (amser real)",
+        "modis": "MODIS — cydraniad 1 km, mwy o basiadau/dydd (amser real)",
+        "viirs_noaa20": "VIIRS NOAA-20 — cydraniad 375 m (amser real)",
+        "viirs_noaa21": "VIIRS NOAA-21 — cydraniad 375 m, lloeren diweddaraf (amser real)"
+      }
+    }
+  }
+}

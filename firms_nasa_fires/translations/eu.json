@@ -8,23 +8,27 @@
           "api_key": "API gakoa",
           "latitude": "Latitudea",
           "longitude": "Longitudea",
-          "radius_km": "Bilaketa erradioa (km)",
+          "radius_km": "Bilaketa erradioa km-tan (6.2-310.7 mi)",
           "units": "Distantzia unitatea",
           "min_confidence": "Gutxieneko konfiantza maila",
-          "source": "Datu iturria",
-          "days": "Egunak atzera",
+          "source": "Datu iturriak",
+          "days": "Atzera begiratzeko egunak",
           "scan_interval": "Eguneratze tartea (minutuak)"
         },
         "data_description": {
-          "api_key": "Lortu zure gakoa https://firms.modaps.eosdis.nasa.gov/api/"
+          "api_key": "Lortu zure gakoa https://firms.modaps.eosdis.nasa.gov/api/",
+          "source": "Aukeratu satelite iturri bat edo gehiago. Iturri anitz erabiltzeak denbora estaldura hobea ematen du (suak eguneko ordu ezberdinetan detektatuak). Duplikatuak automatikoki ezabatzen dira.",
+          "radius_km": "Bilaketa eremua beti km-tan definitzen da. Milak soilik eragiten du su distantziak entitate egoeretan nola erakusten diren."
         }
       }
     },
     "error": {
-      "api_key_invalid": "API gakoa baliogabea da. Gutxienez 10 karaktere luzea izan behar du."
+      "api_key_invalid": "API gakoa baliogabea da. Gutxienez 10 karaktere luzea izan behar du.",
+      "source_required": "Gutxienez datu iturri bat aukeratu behar duzu."
     },
     "abort": {
-      "already_configured": "Integratze hau jada konfiguratu da."
+      "already_configured": "Integratze hau dagoeneko konfiguratu da kokaleku honetarako.",
+      "max_instances_reached": "Instantzia kopuru maximoa iritsi da (10). Kendu instantzia existitzen bat berri bat gehitu aurretik."
     }
   },
   "options": {
@@ -32,14 +36,21 @@
       "init": {
         "title": "NASA FIRMS Fires-erako aukerak",
         "data": {
-          "radius_km": "Bilaketa erradioa (km)",
+          "radius_km": "Bilaketa erradioa km-tan (6.2-310.7 mi)",
           "units": "Distantzia unitatea",
           "min_confidence": "Gutxieneko konfiantza maila",
-          "source": "Datu iturria",
-          "days": "Egunak atzera",
+          "source": "Datu iturriak",
+          "days": "Atzera begiratzeko egunak",
           "scan_interval": "Eguneratze tartea (minutuak)"
+        },
+        "data_description": {
+          "source": "Aukeratu satelite iturri bat edo gehiago. Duplikatuak automatikoki ezabatzen dira.",
+          "radius_km": "Bilaketa eremua beti km-tan definitzen da. Milak soilik eragiten du su distantziak entitate egoeretan nola erakusten diren."
         }
       }
+    },
+    "error": {
+      "source_required": "Gutxienez datu iturri bat aukeratu behar duzu."
     }
   },
   "selector": {
@@ -58,9 +69,10 @@
     },
     "source": {
       "options": {
-        "viirs": "VIIRS SNPP (Denbora erreala)",
-        "modis": "MODIS (Denbora erreala)",
-        "viirs_noaa": "VIIRS NOAA-20 (Denbora erreala)"
+        "viirs_snpp": "VIIRS SNPP — 375 m bereizmena (denbora erreala)",
+        "modis": "MODIS — 1 km bereizmena, pasabide gehiago/egun (denbora erreala)",
+        "viirs_noaa20": "VIIRS NOAA-20 — 375 m bereizmena (denbora erreala)",
+        "viirs_noaa21": "VIIRS NOAA-21 — 375 m bereizmena, satelite berriena (denbora erreala)"
       }
     }
   }

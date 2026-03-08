@@ -8,23 +8,27 @@
           "api_key": "API-avain",
           "latitude": "Leveysaste",
           "longitude": "Pituusaste",
-          "radius_km": "Hakusäde (km)",
+          "radius_km": "Hakusäde km (6.2-310.7 mi)",
           "units": "Etäisyyden yksikkö",
-          "min_confidence": "Vähimmäisluottamusaste",
-          "source": "Tietolähde",
+          "min_confidence": "Vähimmäisluottamus taso",
+          "source": "Datakilder",
           "days": "Päiviä taaksepäin",
-          "scan_interval": "Päivitysväli (minuuttia)"
+          "scan_interval": "Päivitysväli (minuutit)"
         },
         "data_description": {
-          "api_key": "Hanki avain https://firms.modaps.eosdis.nasa.gov/api/"
+          "api_key": "Hanki avain https://firms.modaps.eosdis.nasa.gov/api/",
+          "source": "Valitse yksi tai useampi satelliittilähde. Useiden lähteiden käyttö antaa paremman ajallisen kattavuuden (palot havaittu eri aikoina päivästä). Duplikaatit poistetaan automaattisesti.",
+          "radius_km": "Hakualue määritellään aina km. Mailit vaikuttavat vain, miten paloetäisyydet näytetään entiteettitiloissa."
         }
       }
     },
     "error": {
-      "api_key_invalid": "API-avain on virheellinen. Sen on oltava vähintään 10 merkkiä pitkä."
+      "api_key_invalid": "API-avain on virheellinen. Sen on oltava vähintään 10 merkkiä pitkä.",
+      "source_required": "Sinun on valittava vähintään yksi datalähde."
     },
     "abort": {
-      "already_configured": "Tämä integrointi on jo määritetty."
+      "already_configured": "Tämä integrointi on jo konfiguroitu tälle sijainnille.",
+      "max_instances_reached": "Maksimi instanssien määrä saavutettu (10). Poista olemassa oleva instanssi ennen uuden lisäämistä."
     }
   },
   "options": {
@@ -32,14 +36,21 @@
       "init": {
         "title": "Vaihtoehdot NASA FIRMS Firesille",
         "data": {
-          "radius_km": "Hakusäde (km)",
+          "radius_km": "Hakusäde km (6.2-310.7 mi)",
           "units": "Etäisyyden yksikkö",
-          "min_confidence": "Vähimmäisluottamusaste",
-          "source": "Tietolähde",
+          "min_confidence": "Vähimmäisluottamus taso",
+          "source": "Datakilder",
           "days": "Päiviä taaksepäin",
-          "scan_interval": "Päivitysväli (minuuttia)"
+          "scan_interval": "Päivitysväli (minuutit)"
+        },
+        "data_description": {
+          "source": "Valitse yksi tai useampi satelliittilähde. Duplikaatit poistetaan automaattisesti.",
+          "radius_km": "Hakualue määritellään aina km. Mailit vaikuttavat vain, miten paloetäisyydet näytetään entiteettitiloissa."
         }
       }
+    },
+    "error": {
+      "source_required": "Sinun on valittava vähintään yksi datalähde."
     }
   },
   "selector": {
@@ -58,9 +69,10 @@
     },
     "source": {
       "options": {
-        "viirs": "VIIRS SNPP (Reaaliaikainen)",
-        "modis": "MODIS (Reaaliaikainen)",
-        "viirs_noaa": "VIIRS NOAA-20 (Reaaliaikainen)"
+        "viirs_snpp": "VIIRS SNPP — 375 m resoluutio (reaaliaikainen)",
+        "modis": "MODIS — 1 km resoluutio, enemmän kulkuja/päivä (reaaliaikainen)",
+        "viirs_noaa20": "VIIRS NOAA-20 — 375 m resoluutio (reaaliaikainen)",
+        "viirs_noaa21": "VIIRS NOAA-21 — 375 m resoluutio, uusin satelliitti (reaaliaikainen)"
       }
     }
   }

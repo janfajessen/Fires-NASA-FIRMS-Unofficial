@@ -1,0 +1,79 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Tinte NASA FIRMS",
+        "description": "Cumraigh paraiméadair chun tinte a fháil a braitheadh le NASA FIRMS.",
+        "data": {
+          "api_key": "Eochair API",
+          "latitude": "Domhanleithead",
+          "longitude": "Domhanfhad",
+          "radius_km": "Ga cuardaigh i km (6.2-310.7 mi)",
+          "units": "Aonad fad",
+          "min_confidence": "Leibhéal muiníne íosta",
+          "source": "Foinsí sonraí",
+          "days": "Laethanta chun féachaint ar ais",
+          "scan_interval": "Eatramh nuashonraithe (nóiméid)"
+        },
+        "data_description": {
+          "api_key": "Faigh d'eochair ag https://firms.modaps.eosdis.nasa.gov/api/",
+          "source": "Roghnaigh foinse amháin nó níos mó satailíte. Ag baint úsáide as foinsí iomadúla tugann clúdach ama níos fearr (tinte braite ag amanna difriúla den lá). Déantar dúblaigh a bhaint go huathoibríoch.",
+          "radius_km": "Tá an limistéar cuardaigh sainmhínithe i km i gcónaí. Ní dhéanann mílte difear ach amháin conas a thaispeántar fadanna tinte i stáit eintitis."
+        }
+      }
+    },
+    "error": {
+      "api_key_invalid": "Tá an eochair API neamhbhailí. Caithfidh sé a bheith ar a laghad 10 carachtar fada.",
+      "source_required": "Caithfidh tú foinse sonraí amháin ar a laghad a roghnú."
+    },
+    "abort": {
+      "already_configured": "Tá an t-integraíocht seo cumraithe cheana féin don suíomh seo.",
+      "max_instances_reached": "Uasmhéid líon na n-instaintí bainte amach (10). Bain instaint atá ann cheana roimh instaint nua a chur leis."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Roghanna do Tinte NASA FIRMS",
+        "data": {
+          "radius_km": "Ga cuardaigh i km (6.2-310.7 mi)",
+          "units": "Aonad fad",
+          "min_confidence": "Leibhéal muiníne íosta",
+          "source": "Foinsí sonraí",
+          "days": "Laethanta chun féachaint ar ais",
+          "scan_interval": "Eatramh nuashonraithe (nóiméid)"
+        },
+        "data_description": {
+          "source": "Roghnaigh foinse amháin nó níos mó satailíte. Déantar dúblaigh a bhaint go huathoibríoch.",
+          "radius_km": "Tá an limistéar cuardaigh sainmhínithe i km i gcónaí. Ní dhéanann mílte difear ach amháin conas a thaispeántar fadanna tinte i stáit eintitis."
+        }
+      }
+    },
+    "error": {
+      "source_required": "Caithfidh tú foinse sonraí amháin ar a laghad a roghnú."
+    }
+  },
+  "selector": {
+    "units": {
+      "options": {
+        "km": "Ciliméadair",
+        "mi": "Míle"
+      }
+    },
+    "confidence": {
+      "options": {
+        "l": "Gach ceann (íseal, ainmniúil, ard)",
+        "n": "Ainmniúil agus ard (molta)",
+        "h": "Ard amháin"
+      }
+    },
+    "source": {
+      "options": {
+        "viirs_snpp": "VIIRS SNPP — taifeach 375 m (fíor-am)",
+        "modis": "MODIS — taifeach 1 km, níos mó pasanna/lá (fíor-am)",
+        "viirs_noaa20": "VIIRS NOAA-20 — taifeach 375 m (fíor-am)",
+        "viirs_noaa21": "VIIRS NOAA-21 — taifeach 375 m, satailít is nua (fíor-am)"
+      }
+    }
+  }
+}

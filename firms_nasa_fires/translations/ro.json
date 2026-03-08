@@ -8,23 +8,27 @@
           "api_key": "Cheie API",
           "latitude": "Latitudine",
           "longitude": "Longitudine",
-          "radius_km": "Rază de căutare (km)",
+          "radius_km": "Rază de căutare în km (6.2-310.7 mi)",
           "units": "Unitate de distanță",
           "min_confidence": "Nivel minim de încredere",
-          "source": "Sursă de date",
+          "source": "Surse de date",
           "days": "Zile în urmă",
           "scan_interval": "Interval de actualizare (minute)"
         },
         "data_description": {
-          "api_key": "Obține cheia ta la https://firms.modaps.eosdis.nasa.gov/api/"
+          "api_key": "Obține cheia ta la https://firms.modaps.eosdis.nasa.gov/api/",
+          "source": "Selectează una sau mai multe surse de sateliți. Folosirea mai multor surse oferă o acoperire temporală mai bună (incendii detectate la ore diferite ale zilei). Duplicatele sunt eliminate automat.",
+          "radius_km": "Zona de căutare este întotdeauna definită în km. Milele afectează doar cum sunt afișate distanțele incendiilor în stările entităților."
         }
       }
     },
     "error": {
-      "api_key_invalid": "Cheia API este invalidă. Trebuie să aibă cel puțin 10 caractere."
+      "api_key_invalid": "Cheia API este invalidă. Trebuie să aibă cel puțin 10 caractere.",
+      "source_required": "Trebuie să selectezi cel puțin o sursă de date."
     },
     "abort": {
-      "already_configured": "Această integrare este deja configurată."
+      "already_configured": "Această integrare este deja configurată pentru această locație.",
+      "max_instances_reached": "Numărul maxim de instanțe atins (10). Elimină o instanță existentă înainte de a adăuga una nouă."
     }
   },
   "options": {
@@ -32,14 +36,21 @@
       "init": {
         "title": "Opțiuni pentru incendii NASA FIRMS",
         "data": {
-          "radius_km": "Rază de căutare (km)",
+          "radius_km": "Rază de căutare în km (6.2-310.7 mi)",
           "units": "Unitate de distanță",
           "min_confidence": "Nivel minim de încredere",
-          "source": "Sursă de date",
+          "source": "Surse de date",
           "days": "Zile în urmă",
           "scan_interval": "Interval de actualizare (minute)"
+        },
+        "data_description": {
+          "source": "Selectează una sau mai multe surse de sateliți. Duplicatele sunt eliminate automat.",
+          "radius_km": "Zona de căutare este întotdeauna definită în km. Milele afectează doar cum sunt afișate distanțele incendiilor în stările entităților."
         }
       }
+    },
+    "error": {
+      "source_required": "Trebuie să selectezi cel puțin o sursă de date."
     }
   },
   "selector": {
@@ -53,14 +64,15 @@
       "options": {
         "l": "Toate (scăzut, nominal, înalt)",
         "n": "Nominal și înalt (recomandat)",
-        "h": "Doar înalt"
+        "h": "Înalt doar"
       }
     },
     "source": {
       "options": {
-        "viirs": "VIIRS SNPP (Timp real)",
-        "modis": "MODIS (Timp real)",
-        "viirs_noaa": "VIIRS NOAA-20 (Timp real)"
+        "viirs_snpp": "VIIRS SNPP — rezoluție 375 m (timp real)",
+        "modis": "MODIS — rezoluție 1 km, mai multe treceri/zi (timp real)",
+        "viirs_noaa20": "VIIRS NOAA-20 — rezoluție 375 m (timp real)",
+        "viirs_noaa21": "VIIRS NOAA-21 — rezoluție 375 m, satelit cel mai nou (timp real)"
       }
     }
   }

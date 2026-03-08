@@ -8,23 +8,27 @@
           "api_key": "API Anahtarı",
           "latitude": "Enlem",
           "longitude": "Boylam",
-          "radius_km": "Arama yarıçapı (km)",
+          "radius_km": "Arama yarıçapı km (6.2-310.7 mi)",
           "units": "Mesafe birimi",
           "min_confidence": "Minimum güven seviyesi",
-          "source": "Veri kaynağı",
-          "days": "Geri günler",
+          "source": "Veri kaynakları",
+          "days": "Geriye bakılacak günler",
           "scan_interval": "Güncelleme aralığı (dakika)"
         },
         "data_description": {
-          "api_key": "Anahtarınızı https://firms.modaps.eosdis.nasa.gov/api/ adresinden alın"
+          "api_key": "Anahtarınızı https://firms.modaps.eosdis.nasa.gov/api/ adresinden alın",
+          "source": "Bir veya daha fazla uydu kaynağı seçin. Birden fazla kaynak kullanmak daha iyi zaman kapsama alanı verir (günün farklı saatlerinde tespit edilen yangınlar). Tekrarlar otomatik olarak kaldırılır.",
+          "radius_km": "Arama alanı her zaman km olarak tanımlanır. Mil sadece yangın mesafelerinin varlık durumlarında nasıl görüntülendiğini etkiler."
         }
       }
     },
     "error": {
-      "api_key_invalid": "API anahtarı geçersiz. En az 10 karakter uzunluğunda olmalıdır."
+      "api_key_invalid": "API anahtarı geçersiz. En az 10 karakter uzunluğunda olmalıdır.",
+      "source_required": "En az bir veri kaynağı seçmelisiniz."
     },
     "abort": {
-      "already_configured": "Bu entegrasyon zaten yapılandırılmış."
+      "already_configured": "Bu entegrasyon bu konum için zaten yapılandırılmış.",
+      "max_instances_reached": "Maksimum örnek sayısı ulaşıldı (10). Yeni bir tane eklemeden önce mevcut bir örneği kaldırın."
     }
   },
   "options": {
@@ -32,14 +36,21 @@
       "init": {
         "title": "NASA FIRMS Fires seçenekleri",
         "data": {
-          "radius_km": "Arama yarıçapı (km)",
+          "radius_km": "Arama yarıçapı km (6.2-310.7 mi)",
           "units": "Mesafe birimi",
           "min_confidence": "Minimum güven seviyesi",
-          "source": "Veri kaynağı",
-          "days": "Geri günler",
+          "source": "Veri kaynakları",
+          "days": "Geriye bakılacak günler",
           "scan_interval": "Güncelleme aralığı (dakika)"
+        },
+        "data_description": {
+          "source": "Bir veya daha fazla uydu kaynağı seçin. Tekrarlar otomatik olarak kaldırılır.",
+          "radius_km": "Arama alanı her zaman km olarak tanımlanır. Mil sadece yangın mesafelerinin varlık durumlarında nasıl görüntülendiğini etkiler."
         }
       }
+    },
+    "error": {
+      "source_required": "En az bir veri kaynağı seçmelisiniz."
     }
   },
   "selector": {
@@ -58,9 +69,10 @@
     },
     "source": {
       "options": {
-        "viirs": "VIIRS SNPP (Gerçek zamanlı)",
-        "modis": "MODIS (Gerçek zamanlı)",
-        "viirs_noaa": "VIIRS NOAA-20 (Gerçek zamanlı)"
+        "viirs_snpp": "VIIRS SNPP — 375 m çözünürlük (gerçek zamanlı)",
+        "modis": "MODIS — 1 km çözünürlük, günde daha fazla geçiş (gerçek zamanlı)",
+        "viirs_noaa20": "VIIRS NOAA-20 — 375 m çözünürlük (gerçek zamanlı)",
+        "viirs_noaa21": "VIIRS NOAA-21 — 375 m çözünürlük, en yeni uydu (gerçek zamanlı)"
       }
     }
   }

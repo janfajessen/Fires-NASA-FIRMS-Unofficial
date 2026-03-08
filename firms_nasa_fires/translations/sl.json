@@ -3,28 +3,32 @@
     "step": {
       "user": {
         "title": "Požari NASA FIRMS",
-        "description": "Nastavite parametre za pridobivanje požarov, zaznanih s strani NASA FIRMS.",
+        "description": "Nastavite parametre za pridobitev požarov, zaznanih s strani NASA FIRMS.",
         "data": {
           "api_key": "API ključ",
           "latitude": "Zemljepisna širina",
           "longitude": "Zemljepisna dolžina",
-          "radius_km": "Radij iskanja (km)",
+          "radius_km": "Radij iskanja v km (6.2-310.7 mi)",
           "units": "Enota razdalje",
           "min_confidence": "Minimalna raven zaupanja",
-          "source": "Vir podatkov",
+          "source": "Viri podatkov",
           "days": "Dnevi nazaj",
           "scan_interval": "Interval posodobitve (minute)"
         },
         "data_description": {
-          "api_key": "Pridobite svoj ključ na https://firms.modaps.eosdis.nasa.gov/api/"
+          "api_key": "Pridobite svoj ključ na https://firms.modaps.eosdis.nasa.gov/api/",
+          "source": "Izberite enega ali več satelitskih virov. Uporaba več virov daje boljšo časovno pokritost (požari zaznani v različnih časih dneva). Duplikati se samodejno odstranijo.",
+          "radius_km": "Območje iskanja je vedno definirano v km. Milje vplivajo samo na prikaz razdalj požarov v stanjih entitet."
         }
       }
     },
     "error": {
-      "api_key_invalid": "API ključ je neveljaven. Moral bi biti vsaj 10 znakov dolg."
+      "api_key_invalid": "API ključ je neveljaven. Mora biti najmanj 10 znakov dolg.",
+      "source_required": "Izbrati morate najmanj en vir podatkov."
     },
     "abort": {
-      "already_configured": "Ta integracija je že konfigurirana."
+      "already_configured": "Ta integracija je že konfigurirana za to lokacijo.",
+      "max_instances_reached": "Maksimalno število instanc doseženo (10). Odstranite obstoječo instanco pred dodajanjem nove."
     }
   },
   "options": {
@@ -32,14 +36,21 @@
       "init": {
         "title": "Možnosti za požare NASA FIRMS",
         "data": {
-          "radius_km": "Radij iskanja (km)",
+          "radius_km": "Radij iskanja v km (6.2-310.7 mi)",
           "units": "Enota razdalje",
           "min_confidence": "Minimalna raven zaupanja",
-          "source": "Vir podatkov",
+          "source": "Viri podatkov",
           "days": "Dnevi nazaj",
           "scan_interval": "Interval posodobitve (minute)"
+        },
+        "data_description": {
+          "source": "Izberite enega ali več satelitskih virov. Duplikati se samodejno odstranijo.",
+          "radius_km": "Območje iskanja je vedno definirano v km. Milje vplivajo samo na prikaz razdalj požarov v stanjih entitet."
         }
       }
+    },
+    "error": {
+      "source_required": "Izbrati morate najmanj en vir podatkov."
     }
   },
   "selector": {
@@ -58,9 +69,10 @@
     },
     "source": {
       "options": {
-        "viirs": "VIIRS SNPP (Real-time)",
-        "modis": "MODIS (Real-time)",
-        "viirs_noaa": "VIIRS NOAA-20 (Real-time)"
+        "viirs_snpp": "VIIRS SNPP — ločljivost 375 m (real-time)",
+        "modis": "MODIS — ločljivost 1 km, več preletov/dan (real-time)",
+        "viirs_noaa20": "VIIRS NOAA-20 — ločljivost 375 m (real-time)",
+        "viirs_noaa21": "VIIRS NOAA-21 — ločljivost 375 m, najnovejši satelit (real-time)"
       }
     }
   }

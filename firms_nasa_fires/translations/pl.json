@@ -8,23 +8,27 @@
           "api_key": "Klucz API",
           "latitude": "Szerokość geograficzna",
           "longitude": "Długość geograficzna",
-          "radius_km": "Promień wyszukiwania (km)",
+          "radius_km": "Promień wyszukiwania w km (6.2-310.7 mi)",
           "units": "Jednostka odległości",
           "min_confidence": "Minimalny poziom zaufania",
-          "source": "Źródło danych",
+          "source": "Źródła danych",
           "days": "Dni wstecz",
           "scan_interval": "Interwał aktualizacji (minuty)"
         },
         "data_description": {
-          "api_key": "Pobierz swój klucz na https://firms.modaps.eosdis.nasa.gov/api/"
+          "api_key": "Pobierz klucz na https://firms.modaps.eosdis.nasa.gov/api/",
+          "source": "Wybierz jedno lub więcej źródeł satelitarnych. Użycie wielu źródeł daje lepszą pokrycie czasowe (pożary wykryte o różnych porach dnia). Duplikaty są automatycznie usuwane.",
+          "radius_km": "Obszar wyszukiwania jest zawsze definiowany w km. Mile wpływają tylko na to, jak wyświetlane są odległości pożarów w stanach entitetów."
         }
       }
     },
     "error": {
-      "api_key_invalid": "Klucz API jest nieprawidłowy. Musi mieć co najmniej 10 znaków."
+      "api_key_invalid": "Klucz API jest nieprawidłowy. Musi mieć co najmniej 10 znaków.",
+      "source_required": "Musisz wybrać co najmniej jedno źródło danych."
     },
     "abort": {
-      "already_configured": "Ta integracja jest już skonfigurowana."
+      "already_configured": "Ta integracja jest już skonfigurowana dla tej lokalizacji.",
+      "max_instances_reached": "Maksymalna liczba instancji osiągnięta (10). Usuń istniejącą instancję przed dodaniem nowej."
     }
   },
   "options": {
@@ -32,14 +36,21 @@
       "init": {
         "title": "Opcje dla pożarów NASA FIRMS",
         "data": {
-          "radius_km": "Promień wyszukiwania (km)",
+          "radius_km": "Promień wyszukiwania w km (6.2-310.7 mi)",
           "units": "Jednostka odległości",
           "min_confidence": "Minimalny poziom zaufania",
-          "source": "Źródło danych",
+          "source": "Źródła danych",
           "days": "Dni wstecz",
           "scan_interval": "Interwał aktualizacji (minuty)"
+        },
+        "data_description": {
+          "source": "Wybierz jedno lub więcej źródeł satelitarnych. Duplikaty są automatycznie usuwane.",
+          "radius_km": "Obszar wyszukiwania jest zawsze definiowany w km. Mile wpływają tylko na to, jak wyświetlane są odległości pożarów w stanach entitetów."
         }
       }
+    },
+    "error": {
+      "source_required": "Musisz wybrać co najmniej jedno źródło danych."
     }
   },
   "selector": {
@@ -58,9 +69,10 @@
     },
     "source": {
       "options": {
-        "viirs": "VIIRS SNPP (Czas rzeczywisty)",
-        "modis": "MODIS (Czas rzeczywisty)",
-        "viirs_noaa": "VIIRS NOAA-20 (Czas rzeczywisty)"
+        "viirs_snpp": "VIIRS SNPP — rozdzielczość 375 m (czas rzeczywisty)",
+        "modis": "MODIS — rozdzielczość 1 km, więcej przejść/dzień (czas rzeczywisty)",
+        "viirs_noaa20": "VIIRS NOAA-20 — rozdzielczość 375 m (czas rzeczywisty)",
+        "viirs_noaa21": "VIIRS NOAA-21 — rozdzielczość 375 m, najnowszy satelita (czas rzeczywisty)"
       }
     }
   }

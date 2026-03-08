@@ -8,23 +8,27 @@
           "api_key": "Clau API",
           "latitude": "Latitud",
           "longitude": "Longitud",
-          "radius_km": "Radi de cerca (km)",
+          "radius_km": "Radi de cerca en km (6.2-310.7 mi)",
           "units": "Unitat de distància",
           "min_confidence": "Nivell mínim de confiança",
-          "source": "Font de dades",
-          "days": "Dies enrere",
+          "source": "Fonts de dades",
+          "days": "Dies per mirar enrere",
           "scan_interval": "Interval d'actualització (minuts)"
         },
         "data_description": {
-          "api_key": "Obté la teva clau a https://firms.modaps.eosdis.nasa.gov/api/"
+          "api_key": "Obté la teva clau a https://firms.modaps.eosdis.nasa.gov/api/",
+          "source": "Selecciona una o més fonts de satèl·lits. Utilitzar múltiples fonts dona millor cobertura temporal (incendis detectats a diferents hores del dia). Els duplicats s'eliminen automàticament.",
+          "radius_km": "L'àrea de cerca sempre es defineix en km. Les milles només afecten com es mostren les distàncies d'incendis en estats d'entitats."
         }
       }
     },
     "error": {
-      "api_key_invalid": "La clau API és invàlida. Ha de tenir almenys 10 caràcters."
+      "api_key_invalid": "La clau API és invàlida. Ha de tenir almenys 10 caràcters.",
+      "source_required": "Has de seleccionar almenys una font de dades."
     },
     "abort": {
-      "already_configured": "Aquesta integració ja està configurada."
+      "already_configured": "Aquesta integració ja està configurada per aquesta ubicació.",
+      "max_instances_reached": "Nombre màxim d'instàncies assolit (10). Elimina una instància existent abans d'afegir-ne una nova."
     }
   },
   "options": {
@@ -32,14 +36,21 @@
       "init": {
         "title": "Opcions per incendis NASA FIRMS",
         "data": {
-          "radius_km": "Radi de cerca (km)",
+          "radius_km": "Radi de cerca en km (6.2-310.7 mi)",
           "units": "Unitat de distància",
           "min_confidence": "Nivell mínim de confiança",
-          "source": "Font de dades",
-          "days": "Dies enrere",
+          "source": "Fonts de dades",
+          "days": "Dies per mirar enrere",
           "scan_interval": "Interval d'actualització (minuts)"
+        },
+        "data_description": {
+          "source": "Selecciona una o més fonts de satèl·lits. Els duplicats s'eliminen automàticament.",
+          "radius_km": "L'àrea de cerca sempre es defineix en km. Les milles només afecten com es mostren les distàncies d'incendis en estats d'entitats."
         }
       }
+    },
+    "error": {
+      "source_required": "Has de seleccionar almenys una font de dades."
     }
   },
   "selector": {
@@ -53,14 +64,15 @@
       "options": {
         "l": "Tots (baix, nominal, alt)",
         "n": "Nominal i alt (recomanat)",
-        "h": "Només alt"
+        "h": "Alt només"
       }
     },
     "source": {
       "options": {
-        "viirs": "VIIRS SNPP (Temps real)",
-        "modis": "MODIS (Temps real)",
-        "viirs_noaa": "VIIRS NOAA-20 (Temps real)"
+        "viirs_snpp": "VIIRS SNPP — resolució 375 m (temps real)",
+        "modis": "MODIS — resolució 1 km, més passades/dia (temps real)",
+        "viirs_noaa20": "VIIRS NOAA-20 — resolució 375 m (temps real)",
+        "viirs_noaa21": "VIIRS NOAA-21 — resolució 375 m, satèl·lit més nou (temps real)"
       }
     }
   }

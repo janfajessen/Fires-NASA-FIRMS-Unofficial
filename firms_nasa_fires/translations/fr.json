@@ -8,23 +8,27 @@
           "api_key": "Clé API",
           "latitude": "Latitude",
           "longitude": "Longitude",
-          "radius_km": "Rayon de recherche (km)",
+          "radius_km": "Rayon de recherche en km (6.2-310.7 mi)",
           "units": "Unité de distance",
           "min_confidence": "Niveau de confiance minimum",
-          "source": "Source de données",
-          "days": "Jours en arrière",
+          "source": "Sources de données",
+          "days": "Jours à regarder en arrière",
           "scan_interval": "Intervalle de mise à jour (minutes)"
         },
         "data_description": {
-          "api_key": "Obtenez votre clé sur https://firms.modaps.eosdis.nasa.gov/api/"
+          "api_key": "Obtenez votre clé sur https://firms.modaps.eosdis.nasa.gov/api/",
+          "source": "Sélectionnez une ou plusieurs sources satellites. L'utilisation de plusieurs sources donne une meilleure couverture temporelle (incendies détectés à différents moments de la jour). Les duplicatas sont automatiquement supprimés.",
+          "radius_km": "La zone de recherche est toujours définie en km. Les milles n'affectent que la façon dont les distances d'incendie sont affichées dans les états d'entités."
         }
       }
     },
     "error": {
-      "api_key_invalid": "La clé API est invalide. Elle doit faire au moins 10 caractères."
+      "api_key_invalid": "La clé API est invalide. Elle doit faire au moins 10 caractères.",
+      "source_required": "Vous devez sélectionner au moins une source de données."
     },
     "abort": {
-      "already_configured": "Cette intégration est déjà configurée."
+      "already_configured": "Cette intégration est déjà configurée pour cet emplacement.",
+      "max_instances_reached": "Nombre maximum d'instances atteint (10). Supprimez une instance existante avant d'en ajouter une nouvelle."
     }
   },
   "options": {
@@ -32,14 +36,21 @@
       "init": {
         "title": "Options pour les incendies NASA FIRMS",
         "data": {
-          "radius_km": "Rayon de recherche (km)",
+          "radius_km": "Rayon de recherche en km (6.2-310.7 mi)",
           "units": "Unité de distance",
           "min_confidence": "Niveau de confiance minimum",
-          "source": "Source de données",
-          "days": "Jours en arrière",
+          "source": "Sources de données",
+          "days": "Jours à regarder en arrière",
           "scan_interval": "Intervalle de mise à jour (minutes)"
+        },
+        "data_description": {
+          "source": "Sélectionnez une ou plusieurs sources satellites. Les duplicatas sont automatiquement supprimés.",
+          "radius_km": "La zone de recherche est toujours définie en km. Les milles n'affectent que la façon dont les distances d'incendie sont affichées dans les états d'entités."
         }
       }
+    },
+    "error": {
+      "source_required": "Vous devez sélectionner au moins une source de données."
     }
   },
   "selector": {
@@ -58,9 +69,10 @@
     },
     "source": {
       "options": {
-        "viirs": "VIIRS SNPP (Temps réel)",
-        "modis": "MODIS (Temps réel)",
-        "viirs_noaa": "VIIRS NOAA-20 (Temps réel)"
+        "viirs_snpp": "VIIRS SNPP — résolution 375 m (temps réel)",
+        "modis": "MODIS — résolution 1 km, plus de passages/jour (temps réel)",
+        "viirs_noaa20": "VIIRS NOAA-20 — résolution 375 m (temps réel)",
+        "viirs_noaa21": "VIIRS NOAA-21 — résolution 375 m, satellite le plus récent (temps réel)"
       }
     }
   }

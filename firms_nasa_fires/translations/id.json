@@ -1,0 +1,79 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Api NASA FIRMS",
+        "description": "Konfigurasikan parameter untuk mendapatkan api yang terdeteksi oleh NASA FIRMS.",
+        "data": {
+          "api_key": "Kunci API",
+          "latitude": "Lintang",
+          "longitude": "Bujur",
+          "radius_km": "Radius pencarian dalam km (6.2-310.7 mi)",
+          "units": "Satuan jarak",
+          "min_confidence": "Tingkat kepercayaan minimum",
+          "source": "Sumber data",
+          "days": "Hari untuk melihat kembali",
+          "scan_interval": "Interval pembaruan (menit)"
+        },
+        "data_description": {
+          "api_key": "Dapatkan kunci Anda di https://firms.modaps.eosdis.nasa.gov/api/",
+          "source": "Pilih satu atau lebih sumber satelit. Menggunakan beberapa sumber memberikan cakupan temporal yang lebih baik (api terdeteksi pada waktu yang berbeda dalam hari). Duplikat dihapus secara otomatis.",
+          "radius_km": "Area pencarian selalu didefinisikan dalam km. Mil hanya memengaruhi bagaimana jarak api ditampilkan dalam status entitas."
+        }
+      }
+    },
+    "error": {
+      "api_key_invalid": "Kunci API tidak valid. Harus setidaknya 10 karakter panjang.",
+      "source_required": "Anda harus memilih setidaknya satu sumber data."
+    },
+    "abort": {
+      "already_configured": "Integrasi ini sudah dikonfigurasi untuk lokasi ini.",
+      "max_instances_reached": "Jumlah maksimum instansi tercapai (10). Hapus instansi yang ada sebelum menambahkan yang baru."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Opsi untuk Api NASA FIRMS",
+        "data": {
+          "radius_km": "Radius pencarian dalam km (6.2-310.7 mi)",
+          "units": "Satuan jarak",
+          "min_confidence": "Tingkat kepercayaan minimum",
+          "source": "Sumber data",
+          "days": "Hari untuk melihat kembali",
+          "scan_interval": "Interval pembaruan (menit)"
+        },
+        "data_description": {
+          "source": "Pilih satu atau lebih sumber satelit. Duplikat dihapus secara otomatis.",
+          "radius_km": "Area pencarian selalu didefinisikan dalam km. Mil hanya memengaruhi bagaimana jarak api ditampilkan dalam status entitas."
+        }
+      }
+    },
+    "error": {
+      "source_required": "Anda harus memilih setidaknya satu sumber data."
+    }
+  },
+  "selector": {
+    "units": {
+      "options": {
+        "km": "Kilometer",
+        "mi": "Mil"
+      }
+    },
+    "confidence": {
+      "options": {
+        "l": "Semua (rendah, nominal, tinggi)",
+        "n": "Nominal dan tinggi (disarankan)",
+        "h": "Tinggi saja"
+      }
+    },
+    "source": {
+      "options": {
+        "viirs_snpp": "VIIRS SNPP — resolusi 375 m (real-time)",
+        "modis": "MODIS — resolusi 1 km, lebih banyak pass/hari (real-time)",
+        "viirs_noaa20": "VIIRS NOAA-20 — resolusi 375 m (real-time)",
+        "viirs_noaa21": "VIIRS NOAA-21 — resolusi 375 m, satelit terbaru (real-time)"
+      }
+    }
+  }
+}

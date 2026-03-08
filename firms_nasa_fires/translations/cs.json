@@ -7,24 +7,28 @@
         "data": {
           "api_key": "API klíč",
           "latitude": "Zeměpisná šířka",
-          "longitude": "Zeměpisná délka",
-          "radius_km": "Poloměr hledání (km)",
+          "longitude": "Zeměpisná dĺžka",
+          "radius_km": "Poloměr hledání v km (6.2-310.7 mi)",
           "units": "Jednotka vzdálenosti",
           "min_confidence": "Minimální úroveň důvěry",
-          "source": "Zdroj dat",
+          "source": "Zdroje dat",
           "days": "Dny zpět",
           "scan_interval": "Interval aktualizace (minuty)"
         },
         "data_description": {
-          "api_key": "Získejte svůj klíč na https://firms.modaps.eosdis.nasa.gov/api/"
+          "api_key": "Získejte klíč na https://firms.modaps.eosdis.nasa.gov/api/",
+          "source": "Vyberte jeden nebo více satelitních zdrojů. Použití více zdrojů poskytuje lepší časové pokrytí (požáry detekované v různých dobách dne). Duplicity se automaticky odstraní.",
+          "radius_km": "Oblast hledání je vždy definována v km. Míle ovlivňují pouze zobrazení vzdáleností požárů ve stavech entit."
         }
       }
     },
     "error": {
-      "api_key_invalid": "API klíč je neplatný. Musí mít alespoň 10 znaků."
+      "api_key_invalid": "API klíč je neplatný. Musí mít alespoň 10 znaků.",
+      "source_required": "Musíte vybrat alespoň jeden zdroj dat."
     },
     "abort": {
-      "already_configured": "Tato integrace je již nakonfigurována."
+      "already_configured": "Tato integrace je již konfigurována pro tuto polohu.",
+      "max_instances_reached": "Maximální počet instancí dosažen (10). Odstraňte existující instanci před přidáním nové."
     }
   },
   "options": {
@@ -32,14 +36,21 @@
       "init": {
         "title": "Možnosti pro požáry NASA FIRMS",
         "data": {
-          "radius_km": "Poloměr hledání (km)",
+          "radius_km": "Poloměr hledání v km (6.2-310.7 mi)",
           "units": "Jednotka vzdálenosti",
           "min_confidence": "Minimální úroveň důvěry",
-          "source": "Zdroj dat",
+          "source": "Zdroje dat",
           "days": "Dny zpět",
           "scan_interval": "Interval aktualizace (minuty)"
+        },
+        "data_description": {
+          "source": "Vyberte jeden nebo více satelitních zdrojů. Duplicity se automaticky odstraní.",
+          "radius_km": "Oblast hledání je vždy definována v km. Míle ovlivňují pouze zobrazení vzdáleností požárů ve stavech entit."
         }
       }
+    },
+    "error": {
+      "source_required": "Musíte vybrat alespoň jeden zdroj dat."
     }
   },
   "selector": {
@@ -58,9 +69,10 @@
     },
     "source": {
       "options": {
-        "viirs": "VIIRS SNPP (Real-time)",
-        "modis": "MODIS (Real-time)",
-        "viirs_noaa": "VIIRS NOAA-20 (Real-time)"
+        "viirs_snpp": "VIIRS SNPP — rozlišení 375 m (real-time)",
+        "modis": "MODIS — rozlišení 1 km, více průchodů/den (real-time)",
+        "viirs_noaa20": "VIIRS NOAA-20 — rozlišení 375 m (real-time)",
+        "viirs_noaa21": "VIIRS NOAA-21 — rozlišení 375 m, nejnovější satelit (real-time)"
       }
     }
   }

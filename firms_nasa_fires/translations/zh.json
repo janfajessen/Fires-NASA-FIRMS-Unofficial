@@ -8,7 +8,7 @@
           "api_key": "API 密钥",
           "latitude": "纬度",
           "longitude": "经度",
-          "radius_km": "搜索半径 (km)",
+          "radius_km": "搜索半径 km (6.2-310.7 mi)",
           "units": "距离单位",
           "min_confidence": "最低置信水平",
           "source": "数据源",
@@ -16,15 +16,19 @@
           "scan_interval": "更新间隔 (分钟)"
         },
         "data_description": {
-          "api_key": "在 https://firms.modaps.eosdis.nasa.gov/api/ 获取您的密钥"
+          "api_key": "在 https://firms.modaps.eosdis.nasa.gov/api/ 获取您的密钥",
+          "source": "选择一个或多个卫星源. 使用多个源提供更好的时间覆盖 (火灾在一天的不同时间检测到). 重复项自动删除.",
+          "radius_km": "搜索区域始终以 km 定义. 英里仅影响火灾距离如何在实体状态中显示."
         }
       }
     },
     "error": {
-      "api_key_invalid": "API 密钥无效. 它必须至少 10 个字符长."
+      "api_key_invalid": "API 密钥无效. 它必须至少 10 个字符长.",
+      "source_required": "必须选择至少一个数据源."
     },
     "abort": {
-      "already_configured": "此集成已配置."
+      "already_configured": "此集成已为此位置配置.",
+      "max_instances_reached": "达到最大实例数 (10). 在添加新实例之前删除现有实例."
     }
   },
   "options": {
@@ -32,14 +36,21 @@
       "init": {
         "title": "NASA FIRMS Fires 选项",
         "data": {
-          "radius_km": "搜索半径 (km)",
+          "radius_km": "搜索半径 km (6.2-310.7 mi)",
           "units": "距离单位",
           "min_confidence": "最低置信水平",
           "source": "数据源",
           "days": "回溯天数",
           "scan_interval": "更新间隔 (分钟)"
+        },
+        "data_description": {
+          "source": "选择一个或多个卫星源. 重复项自动删除.",
+          "radius_km": "搜索区域始终以 km 定义. 英里仅影响火灾距离如何在实体状态中显示."
         }
       }
+    },
+    "error": {
+      "source_required": "必须选择至少一个数据源."
     }
   },
   "selector": {
@@ -58,9 +69,10 @@
     },
     "source": {
       "options": {
-        "viirs": "VIIRS SNPP (实时)",
-        "modis": "MODIS (实时)",
-        "viirs_noaa": "VIIRS NOAA-20 (实时)"
+        "viirs_snpp": "VIIRS SNPP — 375 m 分辨率 (实时)",
+        "modis": "MODIS — 1 km 分辨率, 每天更多通过 (实时)",
+        "viirs_noaa20": "VIIRS NOAA-20 — 375 m 分辨率 (实时)",
+        "viirs_noaa21": "VIIRS NOAA-21 — 375 m 分辨率, 最新卫星 (实时)"
       }
     }
   }

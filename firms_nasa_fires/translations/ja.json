@@ -8,7 +8,7 @@
           "api_key": "APIキー",
           "latitude": "緯度",
           "longitude": "経度",
-          "radius_km": "検索半径 (km)",
+          "radius_km": "検索半径 km (6.2-310.7 mi)",
           "units": "距離単位",
           "min_confidence": "最小信頼レベル",
           "source": "データソース",
@@ -16,15 +16,19 @@
           "scan_interval": "更新間隔 (分)"
         },
         "data_description": {
-          "api_key": "https://firms.modaps.eosdis.nasa.gov/api/ でキーを取得してください"
+          "api_key": "キーを https://firms.modaps.eosdis.nasa.gov/api/ で取得してください",
+          "source": "1つまたは複数の衛星ソースを選択してください. 複数ソースの使用はより良い時間カバレッジを与えます (異なる時間帯に検出された火災). 重複は自動的に削除されます.",
+          "radius_km": "検索エリアは常に km で定義されます. マイルはエンティティ状態で火災距離が表示される方法にのみ影響します."
         }
       }
     },
     "error": {
-      "api_key_invalid": "APIキーは無効です。少なくとも10文字の長さが必要です。"
+      "api_key_invalid": "APIキーは無効です. 少なくとも10文字の長さが必要です.",
+      "source_required": "少なくとも1つのデータソースを選択する必要があります."
     },
     "abort": {
-      "already_configured": "この統合はすでに構成されています。"
+      "already_configured": "この統合はこの場所で既に構成されています.",
+      "max_instances_reached": "インスタンスの最大数に達しました (10). 新しいものを追加する前に既存のインスタンスを削除してください."
     }
   },
   "options": {
@@ -32,14 +36,21 @@
       "init": {
         "title": "NASA FIRMS Firesのオプション",
         "data": {
-          "radius_km": "検索半径 (km)",
+          "radius_km": "検索半径 km (6.2-310.7 mi)",
           "units": "距離単位",
           "min_confidence": "最小信頼レベル",
           "source": "データソース",
           "days": "遡る日数",
           "scan_interval": "更新間隔 (分)"
+        },
+        "data_description": {
+          "source": "1つまたは複数の衛星ソースを選択してください. 重複は自動的に削除されます.",
+          "radius_km": "検索エリアは常に km で定義されます. マイルはエンティティ状態で火災距離が表示される方法にのみ影響します."
         }
       }
+    },
+    "error": {
+      "source_required": "少なくとも1つのデータソースを選択する必要があります."
     }
   },
   "selector": {
@@ -58,9 +69,10 @@
     },
     "source": {
       "options": {
-        "viirs": "VIIRS SNPP (リアルタイム)",
-        "modis": "MODIS (リアルタイム)",
-        "viirs_noaa": "VIIRS NOAA-20 (リアルタイム)"
+        "viirs_snpp": "VIIRS SNPP — 375 m 解像度 (リアルタイム)",
+        "modis": "MODIS — 1 km 解像度, 1日あたりのパス数が多い (リアルタイム)",
+        "viirs_noaa20": "VIIRS NOAA-20 — 375 m 解像度 (リアルタイム)",
+        "viirs_noaa21": "VIIRS NOAA-21 — 375 m 解像度, 最新衛星 (リアルタイム)"
       }
     }
   }

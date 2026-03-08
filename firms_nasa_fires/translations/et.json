@@ -8,23 +8,27 @@
           "api_key": "API võti",
           "latitude": "Laiuskraad",
           "longitude": "Pikkuskraad",
-          "radius_km": "Otsinguraadius (km)",
+          "radius_km": "Otsinguraadius km-des (6.2-310.7 mi)",
           "units": "Kauguse ühik",
           "min_confidence": "Minimaalne usaldustase",
-          "source": "Andmeallikas",
-          "days": "Päevi tagasi",
+          "source": "Andmeallikad",
+          "days": "Päevad tagasi vaadata",
           "scan_interval": "Uuendamise intervall (minutid)"
         },
         "data_description": {
-          "api_key": "Hankige oma võti https://firms.modaps.eosdis.nasa.gov/api/"
+          "api_key": "Hangi oma võti https://firms.modaps.eosdis.nasa.gov/api/",
+          "source": "Vali üks või mitu satelliidiallika. Mitme allika kasutamine annab parema ajakatte (tulekahjud tuvastatud erinevatel kellaaegadel). Duplikaadid eemaldatakse automaatselt.",
+          "radius_km": "Otsinguala on alati määratletud km-des. Miilid mõjutavad ainult, kuidas tulekahjude kaugused kuvatakse entiteetide olekutes."
         }
       }
     },
     "error": {
-      "api_key_invalid": "API võti on kehtetu. See peab olema vähemalt 10 tähemärki pikk."
+      "api_key_invalid": "API võti on kehtetu. See peab olema vähemalt 10 tähemärki pikk.",
+      "source_required": "Peate valima vähemalt ühe andmeallika."
     },
     "abort": {
-      "already_configured": "See integratsioon on juba konfigureeritud."
+      "already_configured": "See integratsioon on juba konfigureeritud selle asukoha jaoks.",
+      "max_instances_reached": "Maksimaalne instantside arv saavutatud (10). Eemalda olemasolev instants enne uue lisamist."
     }
   },
   "options": {
@@ -32,14 +36,21 @@
       "init": {
         "title": "Valikud NASA FIRMS Fires jaoks",
         "data": {
-          "radius_km": "Otsinguraadius (km)",
+          "radius_km": "Otsinguraadius km-des (6.2-310.7 mi)",
           "units": "Kauguse ühik",
           "min_confidence": "Minimaalne usaldustase",
-          "source": "Andmeallikas",
-          "days": "Päevi tagasi",
+          "source": "Andmeallikad",
+          "days": "Päevad tagasi vaadata",
           "scan_interval": "Uuendamise intervall (minutid)"
+        },
+        "data_description": {
+          "source": "Vali üks või mitu satelliidiallika. Duplikaadid eemaldatakse automaatselt.",
+          "radius_km": "Otsinguala on alati määratletud km-des. Miilid mõjutavad ainult, kuidas tulekahjude kaugused kuvatakse entiteetide olekutes."
         }
       }
+    },
+    "error": {
+      "source_required": "Peate valima vähemalt ühe andmeallika."
     }
   },
   "selector": {
@@ -58,9 +69,10 @@
     },
     "source": {
       "options": {
-        "viirs": "VIIRS SNPP (Reaalajas)",
-        "modis": "MODIS (Reaalajas)",
-        "viirs_noaa": "VIIRS NOAA-20 (Reaalajas)"
+        "viirs_snpp": "VIIRS SNPP — 375 m eraldusvõime (reaalajas)",
+        "modis": "MODIS — 1 km eraldusvõime, rohkem läbimisi/päev (reaalajas)",
+        "viirs_noaa20": "VIIRS NOAA-20 — 375 m eraldusvõime (reaalajas)",
+        "viirs_noaa21": "VIIRS NOAA-21 — 375 m eraldusvõime, uusim satelliit (reaalajas)"
       }
     }
   }

@@ -3,7 +3,7 @@
     "step": {
       "user": {
         "title": "Požari NASA FIRMS",
-        "description": "Konfigurirajte parametre za dobivanje požara detektiranih od NASA FIRMS.",
+        "description": "Konfigurišite parametre da biste dobili požare detektovane od NASA FIRMS.",
         "data": {
           "api_key": "API ključ",
           "latitude": "Geografska širina",
@@ -12,13 +12,13 @@
           "units": "Jedinica udaljenosti",
           "min_confidence": "Minimalni nivo povjerenja",
           "source": "Izvori podataka",
-          "days": "Dani nazad",
+          "days": "Dani unazad",
           "scan_interval": "Interval ažuriranja (minute)"
         },
         "data_description": {
           "api_key": "Dobijte svoj ključ na https://firms.modaps.eosdis.nasa.gov/api/",
-          "source": "Odaberite jedan ili više satelitskih izvora. Korištenje više izvora daje bolju vremensku pokrivenost (požari detektirani u različito vrijeme dana). Duplikati se automatski uklanjaju.",
-          "radius_km": "Područje pretrage uvijek je definisano u km. Milje utječu samo na prikazivanje udaljenosti požara u stanjima entiteta."
+          "source": "Odaberite jedan ili više satelitskih izvora. Korištenje više izvora daje bolju vremensku pokrivenost (požari detektirani u različito vreme dana). Duplikati se automatski uklanjaju.",
+          "radius_km": "Područje pretrage uvijek je definisano u km. Milje utiču samo na prikazivanje udaljenosti požara u stanjima entiteta."
         }
       }
     },
@@ -40,12 +40,12 @@
           "units": "Jedinica udaljenosti",
           "min_confidence": "Minimalni nivo povjerenja",
           "source": "Izvori podataka",
-          "days": "Dani nazad",
+          "days": "Dani unazad",
           "scan_interval": "Interval ažuriranja (minute)"
         },
         "data_description": {
           "source": "Odaberite jedan ili više satelitskih izvora. Duplikati se automatski uklanjaju.",
-          "radius_km": "Područje pretrage uvijek je definisano u km. Milje utječu samo na prikazivanje udaljenosti požara u stanjima entiteta."
+          "radius_km": "Područje pretrage uvijek je definisano u km. Milje utiču samo na prikazivanje udaljenosti požara u stanjima entiteta."
         }
       }
     },
