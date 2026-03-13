@@ -1,9 +1,11 @@
-# Fires NASA FIRMS Unofficial Integration for Home Assistant
+# Fires NASA FIRMS Unofficial Integration
 
-## Fire Information for Resource Management System
+## custom component <br> for Home Assistant
+
+Fire Information for Resource Management System
 
 <a href="https://firms.modaps.eosdis.nasa.gov">
-  <img src="https://raw.githubusercontent.com/janfajessen/Fires-NASA-FIRMS-Unofficial/refs/heads/main/logo.png" width="150"/>
+  <img src="firms_nasa_fires/brand/logo.png" width="450"/>
 </a>
 
 [![HACS Custom](https://img.shields.io/badge/HACS-Custom-41bdf5.svg?style=for-the-badge)](https://hacs.xyz/docs/publish/start)
@@ -76,6 +78,9 @@ Using multiple sources together gives better temporal coverage (fires detected a
 3. Restart Home Assistant.
 4. Add the integration: **Settings > Devices & Services > Add Integration > NASA FIRMS Fires (Unofficial)**.
 
+<a>
+  <img src="firms_nasa_fires/brand/icon.png" width="100"/>
+</a>
 ---
 
 ## Configuration
@@ -156,7 +161,9 @@ automation:
 ```
 
 ---
-
+<a>
+  <img src="firms_nasa_fires/brand/icon.png" width="100"/>
+</a>
 ## Support & Donations
 
 If you like this integration, consider supporting development!
