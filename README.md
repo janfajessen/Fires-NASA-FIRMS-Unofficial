@@ -29,7 +29,7 @@ It displays detected fires as `geo_location` entities on your HA map, with dista
 - **Automatic cross-satellite deduplication** — same fire detected by multiple satellites appears only once (best confidence/FRP kept).
 - Configurable days back (1–5) and search radius (10–500 km).
 - **Multiple instances** supported — up to 10 simultaneous instances for different locations or configurations.
-- Multi-language support (EN, ES — other languages fall back to EN).
+- Multi-language support.
 - Attributes include latitude, longitude, brightness, FRP, local acquisition time/date, satellite source, and more.
 - **Options can be changed** at any time via the integration's ⚙️ Options menu without data loss.
 
