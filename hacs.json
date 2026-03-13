@@ -1,7 +1,5 @@
 {
-  "name": "Cover Time Based (script/entity)",
-  "content_in_root": false,
-  "render_readme": false,
-  "domains": ["cover"],
-  "homeassistant": "2021.4"
+  "name": "NASA FIRMS Fires (Unofficial)",
+  "render_readme": true,
+  "homeassistant": "2026.2"
 }
