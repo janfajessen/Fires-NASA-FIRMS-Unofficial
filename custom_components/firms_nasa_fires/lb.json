@@ -1,0 +1,79 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "NASA FIRMS Fires",
+        "description": "Konfiguréiert Parameter fir Feier ze kréien, déi vum NASA FIRMS erkannt ginn.",
+        "data": {
+          "api_key": "API Schlëssel",
+          "latitude": "Breedegrad",
+          "longitude": "Längtegrad",
+          "radius_km": "Sichradius an km (6.2-310.7 mi)",
+          "units": "Distanz Eenheet",
+          "min_confidence": "Minimal Vertrauensniveau",
+          "source": "Datenquellen",
+          "days": "Deeg zréck kucken",
+          "scan_interval": "Update Intervall (Minutten)"
+        },
+        "data_description": {
+          "api_key": "Hollt Äre Schlëssel op https://firms.modaps.eosdis.nasa.gov/api/",
+          "source": "Wielt ee oder méi Satellitquellen. Benotzung vun méi Quellen gëtt besser Zäitdeckung (Feier zu verschiddenen Zäiten vum Dag erkannt). Duplikater ginn automatesch ewechgeholl.",
+          "radius_km": "De Sichberäich ass ëmmer an km definéiert. Meilen beaflossen nëmmen, wéi Feierdistanzë an Entitéitszoustande ugewise ginn."
+        }
+      }
+    },
+    "error": {
+      "api_key_invalid": "De API Schlëssel ass ongülteg. Et muss mindestens 10 Zeechen laang sinn.",
+      "source_required": "Dir musst mindestens eng Datenquell wielen."
+    },
+    "abort": {
+      "already_configured": "Dës Integratioun ass scho konfiguréiert fir dës Plaz.",
+      "max_instances_reached": "Maximal Zuel vun Instanzen erreecht (10). Entfernt eng bestehend Instanz virum Hinzufügen vun enger neier."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Optiounen fir NASA FIRMS Fires",
+        "data": {
+          "radius_km": "Sichradius an km (6.2-310.7 mi)",
+          "units": "Distanz Eenheet",
+          "min_confidence": "Minimal Vertrauensniveau",
+          "source": "Datenquellen",
+          "days": "Deeg zréck kucken",
+          "scan_interval": "Update Intervall (Minutten)"
+        },
+        "data_description": {
+          "source": "Wielt ee oder méi Satellitquellen. Duplikater ginn automatesch ewechgeholl.",
+          "radius_km": "De Sichberäich ass ëmmer an km definéiert. Meilen beaflossen nëmmen, wéi Feierdistanzë an Entitéitszoustande ugewise ginn."
+        }
+      }
+    },
+    "error": {
+      "source_required": "Dir musst mindestens eng Datenquell wielen."
+    }
+  },
+  "selector": {
+    "units": {
+      "options": {
+        "km": "Kilometer",
+        "mi": "Meilen"
+      }
+    },
+    "confidence": {
+      "options": {
+        "l": "All (niddereg, nominell, héich)",
+        "n": "Nominell an héich (empfohlen)",
+        "h": "Nëmme héich"
+      }
+    },
+    "source": {
+      "options": {
+        "viirs_snpp": "VIIRS SNPP — 375 m Resolutioun (real-time)",
+        "modis": "MODIS — 1 km Resolutioun, méi Passagen/Dag (real-time)",
+        "viirs_noaa20": "VIIRS NOAA-20 — 375 m Resolutioun (real-time)",
+        "viirs_noaa21": "VIIRS NOAA-21 — 375 m Resolutioun, neiste Satellit (real-time)"
+      }
+    }
+  }
+}

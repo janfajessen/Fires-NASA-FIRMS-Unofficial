@@ -1,0 +1,79 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "NASA FIRMS Fires",
+        "description": "Konfigurējiet parametrus, lai iegūtu NASA FIRMS atklātos ugunsgrēkus.",
+        "data": {
+          "api_key": "API atslēga",
+          "latitude": "Platums",
+          "longitude": "Garums",
+          "radius_km": "Meklēšanas rādiuss km (6.2-310.7 mi)",
+          "units": "Attāluma vienība",
+          "min_confidence": "Minimālais uzticamības līmenis",
+          "source": "Datu avoti",
+          "days": "Dienas atpakaļ",
+          "scan_interval": "Atjaunināšanas intervāls (minūtes)"
+        },
+        "data_description": {
+          "api_key": "Iegūstiet savu atslēgu https://firms.modaps.eosdis.nasa.gov/api/",
+          "source": "Izvēlieties vienu vai vairākus satelītu avotus. Vairāku avotu izmantošana dod labāku laika segumu (ugunsgrēki atklāti dažādos dienas laikos). Dublikāti automātiski tiek noņemti.",
+          "radius_km": "Meklēšanas apgabals vienmēr tiek definēts km. Mile tikai ietekmē, kā ugunsgrēku attālumi tiek parādīti entitātes stāvokļos."
+        }
+      }
+    },
+    "error": {
+      "api_key_invalid": "API atslēga ir nederīga. Tam jābūt vismaz 10 rakstzīmju garam.",
+      "source_required": "Jums jāizvēlas vismaz viens datu avots."
+    },
+    "abort": {
+      "already_configured": "Šī integrācija jau ir konfigurēta šai vietai.",
+      "max_instances_reached": "Maksimālais instanču skaits sasniegts (10). Noņemiet esošu instanci pirms jaunas pievienošanas."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Opcijas NASA FIRMS Fires",
+        "data": {
+          "radius_km": "Meklēšanas rādiuss km (6.2-310.7 mi)",
+          "units": "Attāluma vienība",
+          "min_confidence": "Minimālais uzticamības līmenis",
+          "source": "Datu avoti",
+          "days": "Dienas atpakaļ",
+          "scan_interval": "Atjaunināšanas intervāls (minūtes)"
+        },
+        "data_description": {
+          "source": "Izvēlieties vienu vai vairākus satelītu avotus. Dublikāti automātiski tiek noņemti.",
+          "radius_km": "Meklēšanas apgabals vienmēr tiek definēts km. Mile tikai ietekmē, kā ugunsgrēku attālumi tiek parādīti entitātes stāvokļos."
+        }
+      }
+    },
+    "error": {
+      "source_required": "Jums jāizvēlas vismaz viens datu avots."
+    }
+  },
+  "selector": {
+    "units": {
+      "options": {
+        "km": "Kilometri",
+        "mi": "Jūdzes"
+      }
+    },
+    "confidence": {
+      "options": {
+        "l": "Visi (zems, nomināls, augsts)",
+        "n": "Nomināls un augsts (ieteicams)",
+        "h": "Tikai augsts"
+      }
+    },
+    "source": {
+      "options": {
+        "viirs_snpp": "VIIRS SNPP — izšķirtspēja 375 m (reāllaikā)",
+        "modis": "MODIS — izšķirtspēja 1 km, vairāk pārlidojumu/dienā (reāllaikā)",
+        "viirs_noaa20": "VIIRS NOAA-20 — izšķirtspēja 375 m (reāllaikā)",
+        "viirs_noaa21": "VIIRS NOAA-21 — izšķirtspēja 375 m, jaunākais satelīts (reāllaikā)"
+      }
+    }
+  }
+}

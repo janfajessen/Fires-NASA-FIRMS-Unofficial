@@ -1,0 +1,79 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "NASA FIRMS Brande",
+        "description": "Konfigureer parameters om brande op te spoor deur NASA FIRMS.",
+        "data": {
+          "api_key": "API Sleutel",
+          "latitude": "Breedtegraad",
+          "longitude": "Lengtegraad",
+          "radius_km": "Soekradius in km (6.2-310.7 mi)",
+          "units": "Afstandseenheid",
+          "min_confidence": "Minimum vertroue vlak",
+          "source": "Databronne",
+          "days": "Dae om terug te kyk",
+          "scan_interval": "Opdateer interval (minute)"
+        },
+        "data_description": {
+          "api_key": "Kry jou sleutel by https://firms.modaps.eosdis.nasa.gov/api/",
+          "source": "Kies een of meer satellietbronne. Gebruik van meerdere bronne gee beter tydelike dekking (brande opgespoor op verskillende tye van die dag). Duplikate word outomaties verwyder.",
+          "radius_km": "Die soekarea word altyd in km gedefinieer. Myles beïnvloed slegs hoe brandafstande in entiteitstate vertoon word."
+        }
+      }
+    },
+    "error": {
+      "api_key_invalid": "Die API sleutel is ongeldig. Dit moet ten minste 10 karakters lank wees.",
+      "source_required": "Jy moet ten minste een databron kies."
+    },
+    "abort": {
+      "already_configured": "Hierdie integrasie is reeds gekonfigureer vir hierdie ligging.",
+      "max_instances_reached": "Maksimum aantal instansies bereik (10). Verwyder 'n bestaande instansie voor jy 'n nuwe een byvoeg."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Opsies vir NASA FIRMS Brande",
+        "data": {
+          "radius_km": "Soekradius in km (6.2-310.7 mi)",
+          "units": "Afstandseenheid",
+          "min_confidence": "Minimum vertroue vlak",
+          "source": "Databronne",
+          "days": "Dae om terug te kyk",
+          "scan_interval": "Opdateer interval (minute)"
+        },
+        "data_description": {
+          "source": "Kies een of meer satellietbronne. Duplikate word outomaties verwyder.",
+          "radius_km": "Die soekarea word altyd in km gedefinieer. Myles beïnvloed slegs hoe brandafstande in entiteitstate vertoon word."
+        }
+      }
+    },
+    "error": {
+      "source_required": "Jy moet ten minste een databron kies."
+    }
+  },
+  "selector": {
+    "units": {
+      "options": {
+        "km": "Kilometers",
+        "mi": "Miles"
+      }
+    },
+    "confidence": {
+      "options": {
+        "l": "Alle (lae, nominale, hoë)",
+        "n": "Nominale en hoë (aanbeveel)",
+        "h": "Hoë alleen"
+      }
+    },
+    "source": {
+      "options": {
+        "viirs_snpp": "VIIRS SNPP — 375 m resolusie (real-time)",
+        "modis": "MODIS — 1 km resolusie, meer passe/dag (real-time)",
+        "viirs_noaa20": "VIIRS NOAA-20 — 375 m resolusie (real-time)",
+        "viirs_noaa21": "VIIRS NOAA-21 — 375 m resolusie, nuutste satelliet (real-time)"
+      }
+    }
+  }
+}

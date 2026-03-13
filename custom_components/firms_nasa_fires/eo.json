@@ -1,0 +1,79 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "NASA FIRMS Fires",
+        "description": "Agordu parametrojn por akiri fajrojn detektitajn de NASA FIRMS.",
+        "data": {
+          "api_key": "API ŝlosilo",
+          "latitude": "Latitudo",
+          "longitude": "Longitudo",
+          "radius_km": "Serĉradiuso en km (6.2-310.7 mi)",
+          "units": "Distanciunuo",
+          "min_confidence": "Minimuma konfidenca nivelo",
+          "source": "Datfontoj",
+          "days": "Tagoj por rigardi reen",
+          "scan_interval": "Ĝisdatiga intervalo (minutoj)"
+        },
+        "data_description": {
+          "api_key": "Akiru vian ŝlosilon ĉe https://firms.modaps.eosdis.nasa.gov/api/",
+          "source": "Elektu unu aŭ pli da satelitaj fontoj. Uzado de multoblaj fontoj donas pli bonan tempan kovradon (fajroj detektitaj je malsamaj tempoj de la tago). Duplikatoj estas aŭtomate forigitaj.",
+          "radius_km": "La serĉareo ĉiam estas difinita en km. Miloj influas nur kiel fajrodistancoj estas montritaj en entitaj statoj."
+        }
+      }
+    },
+    "error": {
+      "api_key_invalid": "La API ŝlosilo estas nevalida. Ĝi devas esti almenaŭ 10 karakteroj longa.",
+      "source_required": "Vi devas elekti almenaŭ unu datfonton."
+    },
+    "abort": {
+      "already_configured": "Ĉi tiu integriĝo jam estas agordita por ĉi tiu loko.",
+      "max_instances_reached": "Maksimuma nombro de instancoj atingita (10). Forigu ekzistantan instancon antaŭ aldoni novan."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Opcioj por NASA FIRMS Fires",
+        "data": {
+          "radius_km": "Serĉradiuso en km (6.2-310.7 mi)",
+          "units": "Distanciunuo",
+          "min_confidence": "Minimuma konfidenca nivelo",
+          "source": "Datfontoj",
+          "days": "Tagoj por rigardi reen",
+          "scan_interval": "Ĝisdatiga intervalo (minutoj)"
+        },
+        "data_description": {
+          "source": "Elektu unu aŭ pli da satelitaj fontoj. Duplikatoj estas aŭtomate forigitaj.",
+          "radius_km": "La serĉareo ĉiam estas difinita en km. Miloj influas nur kiel fajrodistancoj estas montritaj en entitaj statoj."
+        }
+      }
+    },
+    "error": {
+      "source_required": "Vi devas elekti almenaŭ unu datfonton."
+    }
+  },
+  "selector": {
+    "units": {
+      "options": {
+        "km": "Kilometroj",
+        "mi": "Miloj"
+      }
+    },
+    "confidence": {
+      "options": {
+        "l": "Ĉiuj (malalta, nominala, alta)",
+        "n": "Nomala kaj alta (rekomendita)",
+        "h": "Alta nur"
+      }
+    },
+    "source": {
+      "options": {
+        "viirs_snpp": "VIIRS SNPP — rezolucio 375 m (realtempa)",
+        "modis": "MODIS — rezolucio 1 km, pli da pasoj/tago (realtempa)",
+        "viirs_noaa20": "VIIRS NOAA-20 — rezolucio 375 m (realtempa)",
+        "viirs_noaa21": "VIIRS NOAA-21 — rezolucio 375 m, plej nova satelito (realtempa)"
+      }
+    }
+  }
+}

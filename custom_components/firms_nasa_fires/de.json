@@ -1,0 +1,79 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "NASA FIRMS Fires",
+        "description": "Konfigurieren Sie Parameter, um Feuer zu erhalten, die von NASA FIRMS erkannt wurden.",
+        "data": {
+          "api_key": "API-Schlüssel",
+          "latitude": "Breitengrad",
+          "longitude": "Längengrad",
+          "radius_km": "Suchradius in km (6.2-310.7 mi)",
+          "units": "Entfernungsunit",
+          "min_confidence": "Minimales Vertrauensniveau",
+          "source": "Datenquellen",
+          "days": "Tage zurückschauen",
+          "scan_interval": "Aktualisierungsintervall (Minuten)"
+        },
+        "data_description": {
+          "api_key": "Holen Sie sich Ihren Schlüssel bei https://firms.modaps.eosdis.nasa.gov/api/",
+          "source": "Wählen Sie eine oder mehrere Satellitenquellen aus. Die Verwendung mehrerer Quellen gibt bessere zeitliche Abdeckung (Feuer zu verschiedenen Tageszeiten erkannt). Duplikate werden automatisch entfernt.",
+          "radius_km": "Der Suchbereich ist immer in km definiert. Meilen beeinflussen nur, wie Feuerentfernungen in Entitätsstatus angezeigt werden."
+        }
+      }
+    },
+    "error": {
+      "api_key_invalid": "Der API-Schlüssel ist ungültig. Er muss mindestens 10 Zeichen lang sein.",
+      "source_required": "Sie müssen mindestens eine Datenquelle auswählen."
+    },
+    "abort": {
+      "already_configured": "Diese Integration ist bereits für diesen Standort konfiguriert.",
+      "max_instances_reached": "Maximale Anzahl von Instanzen erreicht (10). Entfernen Sie eine bestehende Instanz, bevor Sie eine neue hinzufügen."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Optionen für NASA FIRMS Fires",
+        "data": {
+          "radius_km": "Suchradius in km (6.2-310.7 mi)",
+          "units": "Entfernungsunit",
+          "min_confidence": "Minimales Vertrauensniveau",
+          "source": "Datenquellen",
+          "days": "Tage zurückschauen",
+          "scan_interval": "Aktualisierungsintervall (Minuten)"
+        },
+        "data_description": {
+          "source": "Wählen Sie eine oder mehrere Satellitenquellen aus. Duplikate werden automatisch entfernt.",
+          "radius_km": "Der Suchbereich ist immer in km definiert. Meilen beeinflussen nur, wie Feuerentfernungen in Entitätsstatus angezeigt werden."
+        }
+      }
+    },
+    "error": {
+      "source_required": "Sie müssen mindestens eine Datenquelle auswählen."
+    }
+  },
+  "selector": {
+    "units": {
+      "options": {
+        "km": "Kilometer",
+        "mi": "Meilen"
+      }
+    },
+    "confidence": {
+      "options": {
+        "l": "Alle (niedrig, nominell, hoch)",
+        "n": "Nominell und hoch (empfohlen)",
+        "h": "Nur hoch"
+      }
+    },
+    "source": {
+      "options": {
+        "viirs_snpp": "VIIRS SNPP — 375 m Auflösung (real-time)",
+        "modis": "MODIS — 1 km Auflösung, mehr Durchgänge/Tag (real-time)",
+        "viirs_noaa20": "VIIRS NOAA-20 — 375 m Auflösung (real-time)",
+        "viirs_noaa21": "VIIRS NOAA-21 — 375 m Auflösung, neuester Satellit (real-time)"
+      }
+    }
+  }
+}

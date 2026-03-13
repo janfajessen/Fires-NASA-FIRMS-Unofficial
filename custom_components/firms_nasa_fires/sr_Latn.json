@@ -1,0 +1,79 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Požari NASA FIRMS",
+        "description": "Konfigurišite parametre da biste dobili požare detektovane od NASA FIRMS.",
+        "data": {
+          "api_key": "API ključ",
+          "latitude": "Geografska širina",
+          "longitude": "Geografska dužina",
+          "radius_km": "Radijus pretrage u km (6.2-310.7 mi)",
+          "units": "Jedinica udaljenosti",
+          "min_confidence": "Minimalni nivo povjerenja",
+          "source": "Izvori podataka",
+          "days": "Dani unazad",
+          "scan_interval": "Interval ažuriranja (minute)"
+        },
+        "data_description": {
+          "api_key": "Dobijte svoj ključ na https://firms.modaps.eosdis.nasa.gov/api/",
+          "source": "Odaberite jedan ili više satelitskih izvora. Korištenje više izvora daje bolju vremensku pokrivenost (požari detektirani u različito vreme dana). Duplikati se automatski uklanjaju.",
+          "radius_km": "Područje pretrage uvijek je definisano u km. Milje utiču samo na prikazivanje udaljenosti požara u stanjima entiteta."
+        }
+      }
+    },
+    "error": {
+      "api_key_invalid": "API ključ je nevažeći. Mora biti najmanje 10 znakova dug.",
+      "source_required": "Morate odabrati najmanje jedan izvor podataka."
+    },
+    "abort": {
+      "already_configured": "Ova integracija je već konfigurirana za ovu lokaciju.",
+      "max_instances_reached": "Maksimalan broj instanci dostignut (10). Uklonite postojeću instancu prije dodavanja nove."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Opcije za požare NASA FIRMS",
+        "data": {
+          "radius_km": "Radijus pretrage u km (6.2-310.7 mi)",
+          "units": "Jedinica udaljenosti",
+          "min_confidence": "Minimalni nivo povjerenja",
+          "source": "Izvori podataka",
+          "days": "Dani unazad",
+          "scan_interval": "Interval ažuriranja (minute)"
+        },
+        "data_description": {
+          "source": "Odaberite jedan ili više satelitskih izvora. Duplikati se automatski uklanjaju.",
+          "radius_km": "Područje pretrage uvijek je definisano u km. Milje utiču samo na prikazivanje udaljenosti požara u stanjima entiteta."
+        }
+      }
+    },
+    "error": {
+      "source_required": "Morate odabrati najmanje jedan izvor podataka."
+    }
+  },
+  "selector": {
+    "units": {
+      "options": {
+        "km": "Kilometri",
+        "mi": "Milje"
+      }
+    },
+    "confidence": {
+      "options": {
+        "l": "Svi (niski, nominalni, visoki)",
+        "n": "Nominalni i visoki (preporučeno)",
+        "h": "Samo visoki"
+      }
+    },
+    "source": {
+      "options": {
+        "viirs_snpp": "VIIRS SNPP — rezolucija 375 m (real-time)",
+        "modis": "MODIS — rezolucija 1 km, više prolaza/dan (real-time)",
+        "viirs_noaa20": "VIIRS NOAA-20 — rezolucija 375 m (real-time)",
+        "viirs_noaa21": "VIIRS NOAA-21 — rezolucija 375 m, najnoviji satelit (real-time)"
+      }
+    }
+  }
+}

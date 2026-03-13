@@ -1,0 +1,79 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "NASA FIRMS Fires",
+        "description": "Konfigūruokite parametrus, kad gautumėte NASA FIRMS aptiktus gaisrus.",
+        "data": {
+          "api_key": "API raktas",
+          "latitude": "Platuma",
+          "longitude": "Ilguma",
+          "radius_km": "Paieškos spindulys km (6.2-310.7 mi)",
+          "units": "Atstumo vienetas",
+          "min_confidence": "Mažiausias pasitikėjimo lygis",
+          "source": "Duomenų šaltiniai",
+          "days": "Dienos atgal",
+          "scan_interval": "Atnaujinimo intervalas (minutės)"
+        },
+        "data_description": {
+          "api_key": "Gauti savo raktą https://firms.modaps.eosdis.nasa.gov/api/",
+          "source": "Pasirinkite vieną ar daugiau palydovinių šaltinių. Naudojant kelis šaltinius gaunama geresnė laikina aprėptis (gaisrai aptikti skirtingu dienos metu). Dubliai automatiškai pašalinami.",
+          "radius_km": "Paieškos plotas visada apibrėžiamas km. Mylios veikia tik kaip gaisrų atstumai rodomi entitijų būklėse."
+        }
+      }
+    },
+    "error": {
+      "api_key_invalid": "API raktas yra negaliojantis. Jis turi būti bent 10 simbolių ilgio.",
+      "source_required": "Turite pasirinkti bent vieną duomenų šaltinį."
+    },
+    "abort": {
+      "already_configured": "Ši integracija jau sukonfigūruota šiai vietai.",
+      "max_instances_reached": "Maksimalus instancijų skaičius pasiektas (10). Pašalinkite esamą instanciją prieš pridėdami naują."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "NASA FIRMS Fires parinktys",
+        "data": {
+          "radius_km": "Paieškos spindulys km (6.2-310.7 mi)",
+          "units": "Atstumo vienetas",
+          "min_confidence": "Mažiausias pasitikėjimo lygis",
+          "source": "Duomenų šaltiniai",
+          "days": "Dienos atgal",
+          "scan_interval": "Atnaujinimo intervalas (minutės)"
+        },
+        "data_description": {
+          "source": "Pasirinkite vieną ar daugiau palydovinių šaltinių. Dubliai automatiškai pašalinami.",
+          "radius_km": "Paieškos plotas visada apibrėžiamas km. Mylios veikia tik kaip gaisrų atstumai rodomi entitijų būklėse."
+        }
+      }
+    },
+    "error": {
+      "source_required": "Turite pasirinkti bent vieną duomenų šaltinį."
+    }
+  },
+  "selector": {
+    "units": {
+      "options": {
+        "km": "Kilometrai",
+        "mi": "Mylios"
+      }
+    },
+    "confidence": {
+      "options": {
+        "l": "Visi (žemas, nominalus, aukštas)",
+        "n": "Nominalus ir aukštas (rekomenduojama)",
+        "h": "Tik aukštas"
+      }
+    },
+    "source": {
+      "options": {
+        "viirs_snpp": "VIIRS SNPP — 375 m raiška (realaus laiko)",
+        "modis": "MODIS — 1 km raiška, daugiau praejimų/dieną (realaus laiko)",
+        "viirs_noaa20": "VIIRS NOAA-20 — 375 m raiška (realaus laiko)",
+        "viirs_noaa21": "VIIRS NOAA-21 — 375 m raiška, naujausias palydovas (realaus laiko)"
+      }
+    }
+  }
+}

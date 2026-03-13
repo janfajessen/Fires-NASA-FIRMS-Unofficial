@@ -1,0 +1,79 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "NASA FIRMS Fires",
+        "description": "Állítsa be a paramétereket a NASA FIRMS által észlelt tüzek beszerzéséhez.",
+        "data": {
+          "api_key": "API kulcs",
+          "latitude": "Szélesség",
+          "longitude": "Hosszúság",
+          "radius_km": "Keresési sugár km-ben (6.2-310.7 mi)",
+          "units": "Távolság egység",
+          "min_confidence": "Minimális bizalmi szint",
+          "source": "Adatforrások",
+          "days": "Napok vissza",
+          "scan_interval": "Frissítési intervallum (percek)"
+        },
+        "data_description": {
+          "api_key": "Szerezze be a kulcsát a https://firms.modaps.eosdis.nasa.gov/api/",
+          "source": "Válasszon egy vagy több műholdforrást. Több forrás használata jobb időbeli lefedettséget ad (tüzek különböző napszakokban észlelve). A duplikátumok automatikusan eltávolításra kerülnek.",
+          "radius_km": "A keresési terület mindig km-ben van meghatározva. A mérföldek csak azt befolyásolják, hogyan jelennek meg a tűztávolságok az entitás állapotokban."
+        }
+      }
+    },
+    "error": {
+      "api_key_invalid": "Az API kulcs érvénytelen. Legalább 10 karakter hosszúnak kell lennie.",
+      "source_required": "Legalább egy adatforrást kell választania."
+    },
+    "abort": {
+      "already_configured": "Ez az integráció már be van állítva erre a helyre.",
+      "max_instances_reached": "Maximális példányok száma elérve (10). Távolítson el egy meglévő példányt új hozzáadása előtt."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Opciók a NASA FIRMS Fires-hez",
+        "data": {
+          "radius_km": "Keresési sugár km-ben (6.2-310.7 mi)",
+          "units": "Távolság egység",
+          "min_confidence": "Minimális bizalmi szint",
+          "source": "Adatforrások",
+          "days": "Napok vissza",
+          "scan_interval": "Frissítési intervallum (percek)"
+        },
+        "data_description": {
+          "source": "Válasszon egy vagy több műholdforrást. A duplikátumok automatikusan eltávolításra kerülnek.",
+          "radius_km": "A keresési terület mindig km-ben van meghatározva. A mérföldek csak azt befolyásolják, hogyan jelennek meg a tűztávolságok az entitás állapotokban."
+        }
+      }
+    },
+    "error": {
+      "source_required": "Legalább egy adatforrást kell választania."
+    }
+  },
+  "selector": {
+    "units": {
+      "options": {
+        "km": "Kilométer",
+        "mi": "Mérföld"
+      }
+    },
+    "confidence": {
+      "options": {
+        "l": "Minden (alacsony, nominális, magas)",
+        "n": "Nominális és magas (ajánlott)",
+        "h": "Csak magas"
+      }
+    },
+    "source": {
+      "options": {
+        "viirs_snpp": "VIIRS SNPP — 375 m felbontás (real-time)",
+        "modis": "MODIS — 1 km felbontás, több átmenet/nap (real-time)",
+        "viirs_noaa20": "VIIRS NOAA-20 — 375 m felbontás (real-time)",
+        "viirs_noaa21": "VIIRS NOAA-21 — 375 m felbontás, legújabb műhold (real-time)"
+      }
+    }
+  }
+}

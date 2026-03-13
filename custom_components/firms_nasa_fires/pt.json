@@ -1,0 +1,79 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Incêndios NASA FIRMS",
+        "description": "Configure parâmetros para obter incêndios detectados pela NASA FIRMS.",
+        "data": {
+          "api_key": "Chave API",
+          "latitude": "Latitude",
+          "longitude": "Longitude",
+          "radius_km": "Raio de busca em km (6.2-310.7 mi)",
+          "units": "Unidade de distância",
+          "min_confidence": "Nível mínimo de confiança",
+          "source": "Fontes de dados",
+          "days": "Dias para olhar para trás",
+          "scan_interval": "Intervalo de atualização (minutos)"
+        },
+        "data_description": {
+          "api_key": "Obtenha sua chave em https://firms.modaps.eosdis.nasa.gov/api/",
+          "source": "Selecione uma ou mais fontes de satélites. Usar múltiplas fontes dá melhor cobertura temporal (incêndios detectados em diferentes horas do dia). Duplicatas são removidas automaticamente.",
+          "radius_km": "A área de busca é sempre definida em km. As milhas afetam apenas como as distâncias de incêndios são exibidas em estados de entidades."
+        }
+      }
+    },
+    "error": {
+      "api_key_invalid": "A chave API é inválida. Deve ter pelo menos 10 caracteres.",
+      "source_required": "Você deve selecionar pelo menos uma fonte de dados."
+    },
+    "abort": {
+      "already_configured": "Esta integração já está configurada para esta localização.",
+      "max_instances_reached": "Número máximo de instâncias alcançado (10). Remova uma instância existente antes de adicionar uma nova."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Opções para incêndios NASA FIRMS",
+        "data": {
+          "radius_km": "Raio de busca em km (6.2-310.7 mi)",
+          "units": "Unidade de distância",
+          "min_confidence": "Nível mínimo de confiança",
+          "source": "Fontes de dados",
+          "days": "Dias para olhar para trás",
+          "scan_interval": "Intervalo de atualização (minutos)"
+        },
+        "data_description": {
+          "source": "Selecione uma ou mais fontes de satélites. Duplicatas são removidas automaticamente.",
+          "radius_km": "A área de busca é sempre definida em km. As milhas afetam apenas como as distâncias de incêndios são exibidas em estados de entidades."
+        }
+      }
+    },
+    "error": {
+      "source_required": "Você deve selecionar pelo menos uma fonte de dados."
+    }
+  },
+  "selector": {
+    "units": {
+      "options": {
+        "km": "Quilômetros",
+        "mi": "Milhas"
+      }
+    },
+    "confidence": {
+      "options": {
+        "l": "Todos (baixa, nominal, alta)",
+        "n": "Nominal e alta (recomendado)",
+        "h": "Alta apenas"
+      }
+    },
+    "source": {
+      "options": {
+        "viirs_snpp": "VIIRS SNPP — resolução 375 m (tempo real)",
+        "modis": "MODIS — resolução 1 km, mais passagens/dia (tempo real)",
+        "viirs_noaa20": "VIIRS NOAA-20 — resolução 375 m (tempo real)",
+        "viirs_noaa21": "VIIRS NOAA-21 — resolução 375 m, satélite mais novo (tempo real)"
+      }
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "NASA FIRMS Fires",
+        "description": "Configureer parameters om branden te krijgen die door NASA FIRMS zijn gedetecteerd.",
+        "data": {
+          "api_key": "API-sleutel",
+          "latitude": "Breedtegraad",
+          "longitude": "Lengtegraad",
+          "radius_km": "Zoekradius (km)",
+          "units": "Afstandseenheid",
+          "min_confidence": "Minimale vertrouwensniveau",
+          "source": "Gegevensbron",
+          "days": "Dagen terug",
+          "scan_interval": "Update-interval (minuten)"
+        },
+        "data_description": {
+          "api_key": "Haal uw sleutel op https://firms.modaps.eosdis.nasa.gov/api/"
+        }
+      }
+    },
+    "error": {
+      "api_key_invalid": "De API-sleutel is ongeldig. Het moet ten minste 10 tekens lang zijn."
+    },
+    "abort": {
+      "already_configured": "Deze integratie is al geconfigureerd."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Opties voor NASA FIRMS Fires",
+        "data": {
+          "radius_km": "Zoekradius (km)",
+          "units": "Afstandseenheid",
+          "min_confidence": "Minimale vertrouwensniveau",
+          "source": "Gegevensbron",
+          "days": "Dagen terug",
+          "scan_interval": "Update-interval (minuten)"
+        }
+      }
+    }
+  },
+  "selector": {
+    "units": {
+      "options": {
+        "km": "Kilometers",
+        "mi": "Mijl"
+      }
+    },
+    "confidence": {
+      "options": {
+        "l": "Alle (laag, nominaal, hoog)",
+        "n": "Nominaal en hoog (aanbevolen)",
+        "h": "Alleen hoog"
+      }
+    },
+    "source": {
+      "options": {
+        "viirs": "VIIRS SNPP (Real-time)",
+        "modis": "MODIS (Real-time)",
+        "viirs_noaa": "VIIRS NOAA-20 (Real-time)"
+      }
+    }
+  }
+}

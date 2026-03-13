@@ -1,0 +1,79 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "NASA FIRMS Fires",
+        "description": "Konfigurearje parameters om fjoeren te krijen dy't detektearre wurde troch NASA FIRMS.",
+        "data": {
+          "api_key": "API kaai",
+          "latitude": "Breedtegraad",
+          "longitude": "Lengtegraad",
+          "radius_km": "Sykstraal yn km (6.2-310.7 mi)",
+          "units": "Ofstân ienheid",
+          "min_confidence": "Minimum fertrouwensnivo",
+          "source": "Data boarnen",
+          "days": "Dagen om werom te sjen",
+          "scan_interval": "Bywurkingsinterval (minuten)"
+        },
+        "data_description": {
+          "api_key": "Krij jo kaai op https://firms.modaps.eosdis.nasa.gov/api/",
+          "source": "Selektearje ien of mear satellyt boarnen. Gebrûk fan meardere boarnen jout bettere tiidsdekking (fjoeren detektearre op ferskillende tiden fan de dei). Duplikaten wurde automatysk fuortsmiten.",
+          "radius_km": "De sykgebiet wurdt altyd definiearre yn km. Milen beynfloedzje allinnich hoe fjoerôfstannen werjûn wurde yn entiteit steaten."
+        }
+      }
+    },
+    "error": {
+      "api_key_invalid": "De API kaai is ûnjildich. It moat op syn minst 10 tekens lang wêze.",
+      "source_required": "Jo moatte op syn minst ien data boarne selektearje."
+    },
+    "abort": {
+      "already_configured": "Dizze yntegraasje is al konfigurearre foar dizze lokaasje.",
+      "max_instances_reached": "Maksimum oantal ynstânsjes berikt (10). Fuortsmite in besteande ynstânsje foar it tafoegjen fan in nije."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Opsjes foar NASA FIRMS Fires",
+        "data": {
+          "radius_km": "Sykstraal yn km (6.2-310.7 mi)",
+          "units": "Ofstân ienheid",
+          "min_confidence": "Minimum fertrouwensnivo",
+          "source": "Data boarnen",
+          "days": "Dagen om werom te sjen",
+          "scan_interval": "Bywurkingsinterval (minuten)"
+        },
+        "data_description": {
+          "source": "Selektearje ien of mear satellyt boarnen. Duplikaten wurde automatysk fuortsmiten.",
+          "radius_km": "De sykgebiet wurdt altyd definiearre yn km. Milen beynfloedzje allinnich hoe fjoerôfstannen werjûn wurde yn entiteit steaten."
+        }
+      }
+    },
+    "error": {
+      "source_required": "Jo moatte op syn minst ien data boarne selektearje."
+    }
+  },
+  "selector": {
+    "units": {
+      "options": {
+        "km": "Kilometers",
+        "mi": "Miles"
+      }
+    },
+    "confidence": {
+      "options": {
+        "l": "Alle (leech, nominel, heech)",
+        "n": "Nominel en heech (oanrikkemandearre)",
+        "h": "Heech allinne"
+      }
+    },
+    "source": {
+      "options": {
+        "viirs_snpp": "VIIRS SNPP — 375 m resolúsje (real-time)",
+        "modis": "MODIS — 1 km resolúsje, mear passes/dei (real-time)",
+        "viirs_noaa20": "VIIRS NOAA-20 — 375 m resolúsje (real-time)",
+        "viirs_noaa21": "VIIRS NOAA-21 — 375 m resolúsje, nijste satellyt (real-time)"
+      }
+    }
+  }
+}

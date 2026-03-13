@@ -1,0 +1,79 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Hỏa hoạn NASA FIRMS",
+        "description": "Cấu hình tham số để lấy hỏa hoạn được phát hiện bởi NASA FIRMS.",
+        "data": {
+          "api_key": "Khóa API",
+          "latitude": "Vĩ độ",
+          "longitude": "Kinh độ",
+          "radius_km": "Bán kính tìm kiếm trong km (6.2-310.7 mi)",
+          "units": "Đơn vị khoảng cách",
+          "min_confidence": "Mức độ tin cậy tối thiểu",
+          "source": "Nguồn dữ liệu",
+          "days": "Ngày để nhìn lại",
+          "scan_interval": "Khoảng thời gian cập nhật (phút)"
+        },
+        "data_description": {
+          "api_key": "Lấy khóa của bạn tại https://firms.modaps.eosdis.nasa.gov/api/",
+          "source": "Chọn một hoặc nhiều nguồn vệ tinh. Sử dụng nhiều nguồn cho phạm vi thời gian tốt hơn (hỏa hoạn phát hiện ở các thời gian khác nhau trong ngày). Bản sao được loại bỏ tự động.",
+          "radius_km": "Khu vực tìm kiếm luôn được định nghĩa trong km. Dặm chỉ ảnh hưởng đến cách khoảng cách hỏa hoạn được hiển thị trong trạng thái thực thể."
+        }
+      }
+    },
+    "error": {
+      "api_key_invalid": "Khóa API không hợp lệ. Nó phải dài ít nhất 10 ký tự.",
+      "source_required": "Bạn phải chọn ít nhất một nguồn dữ liệu."
+    },
+    "abort": {
+      "already_configured": "Tích hợp này đã được cấu hình cho vị trí này.",
+      "max_instances_reached": "Số lượng tối đa các trường hợp đạt được (10). Loại bỏ một trường hợp hiện có trước khi thêm mới."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Tùy chọn cho hỏa hoạn NASA FIRMS",
+        "data": {
+          "radius_km": "Bán kính tìm kiếm trong km (6.2-310.7 mi)",
+          "units": "Đơn vị khoảng cách",
+          "min_confidence": "Mức độ tin cậy tối thiểu",
+          "source": "Nguồn dữ liệu",
+          "days": "Ngày để nhìn lại",
+          "scan_interval": "Khoảng thời gian cập nhật (phút)"
+        },
+        "data_description": {
+          "source": "Chọn một hoặc nhiều nguồn vệ tinh. Bản sao được loại bỏ tự động.",
+          "radius_km": "Khu vực tìm kiếm luôn được định nghĩa trong km. Dặm chỉ ảnh hưởng đến cách khoảng cách hỏa hoạn được hiển thị trong trạng thái thực thể."
+        }
+      }
+    },
+    "error": {
+      "source_required": "Bạn phải chọn ít nhất một nguồn dữ liệu."
+    }
+  },
+  "selector": {
+    "units": {
+      "options": {
+        "km": "Kilomet",
+        "mi": "Dặm"
+      }
+    },
+    "confidence": {
+      "options": {
+        "l": "Tất cả (thấp, danh nghĩa, cao)",
+        "n": "Danh nghĩa và cao (khuyến nghị)",
+        "h": "Cao chỉ"
+      }
+    },
+    "source": {
+      "options": {
+        "viirs_snpp": "VIIRS SNPP — độ phân giải 375 m (thời gian thực)",
+        "modis": "MODIS — độ phân giải 1 km, nhiều lượt qua/ngày (thời gian thực)",
+        "viirs_noaa20": "VIIRS NOAA-20 — độ phân giải 375 m (thời gian thực)",
+        "viirs_noaa21": "VIIRS NOAA-21 — độ phân giải 375 m, vệ tinh mới nhất (thời gian thực)"
+      }
+    }
+  }
+}

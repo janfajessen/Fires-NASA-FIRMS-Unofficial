@@ -1,0 +1,79 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "NASA FIRMS Brande",
+        "description": "Konfigurer parametre for at få brande detekteret af NASA FIRMS.",
+        "data": {
+          "api_key": "API-nøgle",
+          "latitude": "Breddegrad",
+          "longitude": "Længdegrad",
+          "radius_km": "Søgeradius i km (6.2-310.7 mi)",
+          "units": "Afstandsenhed",
+          "min_confidence": "Minimum tillidsniveau",
+          "source": "Datakilder",
+          "days": "Dage til at kigge tilbage",
+          "scan_interval": "Opdateringsinterval (minutter)"
+        },
+        "data_description": {
+          "api_key": "Få din nøgle på https://firms.modaps.eosdis.nasa.gov/api/",
+          "source": "Vælg en eller flere satellitkilder. Brug af flere kilder giver bedre tidsdækning (brande detekteret på forskellige tidspunkter af dagen). Duplikater fjernes automatisk.",
+          "radius_km": "Søgeområdet er altid defineret i km. Miles påvirker kun, hvordan brandafstande vises i enhedstilstande."
+        }
+      }
+    },
+    "error": {
+      "api_key_invalid": "API-nøglen er ugyldig. Den skal være mindst 10 tegn lang.",
+      "source_required": "Du skal vælge mindst én datakilde."
+    },
+    "abort": {
+      "already_configured": "Denne integration er allerede konfigureret for denne placering.",
+      "max_instances_reached": "Maksimalt antal instanser nået (10). Fjern en eksisterende instans før du tilføjer en ny."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Muligheder for NASA FIRMS Brande",
+        "data": {
+          "radius_km": "Søgeradius i km (6.2-310.7 mi)",
+          "units": "Afstandsenhed",
+          "min_confidence": "Minimum tillidsniveau",
+          "source": "Datakilder",
+          "days": "Dage til at kigge tilbage",
+          "scan_interval": "Opdateringsinterval (minutter)"
+        },
+        "data_description": {
+          "source": "Vælg en eller flere satellitkilder. Duplikater fjernes automatisk.",
+          "radius_km": "Søgeområdet er altid defineret i km. Miles påvirker kun, hvordan brandafstande vises i enhedstilstande."
+        }
+      }
+    },
+    "error": {
+      "source_required": "Du skal vælge mindst én datakilde."
+    }
+  },
+  "selector": {
+    "units": {
+      "options": {
+        "km": "Kilometer",
+        "mi": "Miles"
+      }
+    },
+    "confidence": {
+      "options": {
+        "l": "Alle (lav, nominelt, høj)",
+        "n": "Nominelt og høj (anbefalet)",
+        "h": "Kun høj"
+      }
+    },
+    "source": {
+      "options": {
+        "viirs_snpp": "VIIRS SNPP — 375 m opløsning (real-time)",
+        "modis": "MODIS — 1 km opløsning, flere passager/dag (real-time)",
+        "viirs_noaa20": "VIIRS NOAA-20 — 375 m opløsning (real-time)",
+        "viirs_noaa21": "VIIRS NOAA-21 — 375 m opløsning, nyeste satellit (real-time)"
+      }
+    }
+  }
+}

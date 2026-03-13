@@ -1,0 +1,79 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "NASA FIRMS Fires",
+        "description": "Konfigurer parametere for å få branner detektert av NASA FIRMS.",
+        "data": {
+          "api_key": "API-nøkkel",
+          "latitude": "Breddegrad",
+          "longitude": "Lengdegrad",
+          "radius_km": "Søkeradius i km (6.2-310.7 mi)",
+          "units": "Avstandsenhet",
+          "min_confidence": "Minimum tillitsnivå",
+          "source": "Datakilder",
+          "days": "Dager å se tilbake",
+          "scan_interval": "Oppdateringsintervall (minutter)"
+        },
+        "data_description": {
+          "api_key": "Få nøkkelen din på https://firms.modaps.eosdis.nasa.gov/api/",
+          "source": "Velg en eller flere satellittkilder. Bruk av flere kilder gir bedre tidsdekning (branner detektert på forskjellige tidspunkter på dagen). Duplikater fjernes automatisk.",
+          "radius_km": "Søkeområdet er alltid definert i km. Miles påvirker bare hvordan brannavstander vises i enhetstilstander."
+        }
+      }
+    },
+    "error": {
+      "api_key_invalid": "API-nøkkelen er ugyldig. Den må være minst 10 tegn lang.",
+      "source_required": "Du må velge minst en datakilde."
+    },
+    "abort": {
+      "already_configured": "Denne integrasjonen er allerede konfigurert for denne plasseringen.",
+      "max_instances_reached": "Maksimalt antall instanser nådd (10). Fjern en eksisterende instans før du legger til en ny."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Alternativer for NASA FIRMS Fires",
+        "data": {
+          "radius_km": "Søkeradius i km (6.2-310.7 mi)",
+          "units": "Avstandsenhet",
+          "min_confidence": "Minimum tillitsnivå",
+          "source": "Datakilder",
+          "days": "Dager å se tilbake",
+          "scan_interval": "Oppdateringsintervall (minutter)"
+        },
+        "data_description": {
+          "source": "Velg en eller flere satellittkilder. Duplikater fjernes automatisk.",
+          "radius_km": "Søkeområdet er alltid definert i km. Miles påvirker bare hvordan brannavstander vises i enhetstilstander."
+        }
+      }
+    },
+    "error": {
+      "source_required": "Du må velge minst en datakilde."
+    }
+  },
+  "selector": {
+    "units": {
+      "options": {
+        "km": "Kilometer",
+        "mi": "Miles"
+      }
+    },
+    "confidence": {
+      "options": {
+        "l": "Alle (lav, nominell, høy)",
+        "n": "Nominell og høy (anbefalt)",
+        "h": "Bare høy"
+      }
+    },
+    "source": {
+      "options": {
+        "viirs_snpp": "VIIRS SNPP — 375 m oppløsning (real-time)",
+        "modis": "MODIS — 1 km oppløsning, flere passeringer/dag (real-time)",
+        "viirs_noaa20": "VIIRS NOAA-20 — 375 m oppløsning (real-time)",
+        "viirs_noaa21": "VIIRS NOAA-21 — 375 m oppløsning, nyeste satellitt (real-time)"
+      }
+    }
+  }
+}

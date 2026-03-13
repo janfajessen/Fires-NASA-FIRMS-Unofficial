@@ -1,0 +1,79 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "NASA FIRMS Eldar",
+        "description": "Stilltu breytur til að fá elda greinda af NASA FIRMS.",
+        "data": {
+          "api_key": "API lykill",
+          "latitude": "Breiddargráða",
+          "longitude": "Lengdargráða",
+          "radius_km": "Leitarradíus í km (6.2-310.7 mi)",
+          "units": "Fjarlægðareining",
+          "min_confidence": "Lágmarks trauststig",
+          "source": "Gagnagjafir",
+          "days": "Dagar til að líta til baka",
+          "scan_interval": "Uppfærsluinterval (mínútur)"
+        },
+        "data_description": {
+          "api_key": "Fáðu lykil þinn á https://firms.modaps.eosdis.nasa.gov/api/",
+          "source": "Veldu eina eða fleiri gervihnattagjafir. Notkun margra gjafra gefur betri tímaþekju (eldar greindir á mismunandi tímum dags). Tvöföld eru fjarlægð sjálfkrafa.",
+          "radius_km": "Leitarsvæðið er alltaf skilgreint í km. Mílur hafa aðeins áhrif á hvernig eldfjarlægðir eru sýndar í einingastöðum."
+        }
+      }
+    },
+    "error": {
+      "api_key_invalid": "API lykill er ógildur. Hann verður að vera a.m.k. 10 stafir langur.",
+      "source_required": "Þú verður að velja a.m.k. eina gagnagjafa."
+    },
+    "abort": {
+      "already_configured": "Þessi samþætting er þegar stillt fyrir þetta staðsetningu.",
+      "max_instances_reached": "Hámarksfjöldi tilvika náð (10). Fjarlægðu núverandi tilvik áður en þú bætir við nýju."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Valmöguleikar fyrir NASA FIRMS Elda",
+        "data": {
+          "radius_km": "Leitarradíus í km (6.2-310.7 mi)",
+          "units": "Fjarlægðareining",
+          "min_confidence": "Lágmarks trauststig",
+          "source": "Gagnagjafir",
+          "days": "Dagar til að líta til baka",
+          "scan_interval": "Uppfærsluinterval (mínútur)"
+        },
+        "data_description": {
+          "source": "Veldu eina eða fleiri gervihnattagjafir. Tvöföld eru fjarlægð sjálfkrafa.",
+          "radius_km": "Leitarsvæðið er alltaf skilgreint í km. Mílur hafa aðeins áhrif á hvernig eldfjarlægðir eru sýndar í einingastöðum."
+        }
+      }
+    },
+    "error": {
+      "source_required": "Þú verður að velja a.m.k. eina gagnagjafa."
+    }
+  },
+  "selector": {
+    "units": {
+      "options": {
+        "km": "Kílómetrar",
+        "mi": "Mílur"
+      }
+    },
+    "confidence": {
+      "options": {
+        "l": "Öll (lágt, nafnlegt, hátt)",
+        "n": "Nafnlegt og hátt (mælt með)",
+        "h": "Hátt aðeins"
+      }
+    },
+    "source": {
+      "options": {
+        "viirs_snpp": "VIIRS SNPP — upplausn 375 m (rauntími)",
+        "modis": "MODIS — upplausn 1 km, fleiri ferðir/dag (rauntími)",
+        "viirs_noaa20": "VIIRS NOAA-20 — upplausn 375 m (rauntími)",
+        "viirs_noaa21": "VIIRS NOAA-21 — upplausn 375 m, nýjasti gervihnöttur (rauntími)"
+      }
+    }
+  }
+}
