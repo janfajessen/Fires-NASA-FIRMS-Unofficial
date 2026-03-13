@@ -12,13 +12,19 @@
           "units": "Distance unit",
           "min_confidence": "Minimum confidence level",
           "source": "Data sources",
+          "daynight": "Day/Night filter",
           "days": "Days to look back",
-          "scan_interval": "Update interval (minutes)"
+          "date": "Historical date (optional)",
+          "scan_interval": "Update interval (minutes)",
+          "min_frp": "Minimum FRP (MW)"
         },
         "data_description": {
           "api_key": "Get your key at https://firms.modaps.eosdis.nasa.gov/api/",
-          "source": "Select one or more satellite sources. Using multiple sources gives better temporal coverage (fires detected at different times of day). Duplicates are automatically removed.",
-          "radius_km": "The search area is always defined in km. Miles only affect how fire distances are displayed in entity states."
+          "source": "Select one or more satellite sources. Using multiple sources gives better temporal coverage. Duplicates are automatically removed.",
+          "daynight": "Night detections have fewer false positives from industrial sources (furnaces, gas flaring, city lights). 'All' is recommended for wildfire monitoring.",
+          "radius_km": "The search area is always defined in km. Miles only affect how fire distances are displayed in entity states.",
+          "date": "Leave empty to use 'days to look back' (real-time mode). Set a date (YYYY-MM-DD) to query a specific historical day instead.",
+          "min_frp": "Fire Radiative Power: energy the satellite measures the fire emitting, in Megawatts (MW). <10 MW = small fire or controlled burn. 10-100 MW = active moderate wildfire. 100-1000 MW = large intense fire. >1000 MW = extreme fire (California, Australia scale). Set to 0 to show all detections. Raising to 15-30 MW effectively removes most industrial false positives (furnaces, gas flaring, city lights)."
         }
       }
     },
@@ -40,12 +46,18 @@
           "units": "Distance unit",
           "min_confidence": "Minimum confidence level",
           "source": "Data sources",
+          "daynight": "Day/Night filter",
           "days": "Days to look back",
-          "scan_interval": "Update interval (minutes)"
+          "date": "Historical date (optional)",
+          "scan_interval": "Update interval (minutes)",
+          "min_frp": "Minimum FRP (MW)"
         },
         "data_description": {
           "source": "Select one or more satellite sources. Duplicates are automatically removed.",
-          "radius_km": "The search area is always defined in km. Miles only affect how fire distances are displayed in entity states."
+          "daynight": "Night detections have fewer false positives from industrial sources (furnaces, gas flaring, city lights). 'All' is recommended for wildfire monitoring.",
+          "radius_km": "The search area is always defined in km. Miles only affect how fire distances are displayed.",
+          "date": "Leave empty for real-time mode (days to look back). Set a date to query a specific historical day.",
+          "min_frp": "Fire Radiative Power: energy the satellite measures the fire emitting, in Megawatts (MW). <10 MW = small fire or controlled burn. 10-100 MW = active moderate wildfire. 100-1000 MW = large intense fire. >1000 MW = extreme fire (California, Australia scale). Set to 0 to show all detections. Raising to 15-30 MW effectively removes most industrial false positives (furnaces, gas flaring, city lights)."
         }
       }
     },
@@ -72,7 +84,42 @@
         "viirs_snpp": "VIIRS SNPP — 375 m resolution (real-time)",
         "modis": "MODIS — 1 km resolution, more passes/day (real-time)",
         "viirs_noaa20": "VIIRS NOAA-20 — 375 m resolution (real-time)",
-        "viirs_noaa21": "VIIRS NOAA-21 — 375 m resolution, newest satellite (real-time)"
+        "viirs_noaa21": "VIIRS NOAA-21 — 375 m, newest satellite (real-time)",
+        "landsat": "Landsat 8/9 — 30 m resolution, fewer passes (real-time)"
+      }
+    },
+    "daynight": {
+      "options": {
+        "all": "All (day and night) — recommended",
+        "day": "Day only",
+        "night": "Night only — fewer industrial false positives"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "fires_last_24h": {
+        "name": "Fires in last 24h"
+      },
+      "fires_daytime": {
+        "name": "Daytime fires"
+      },
+      "fires_nighttime": {
+        "name": "Nighttime fires"
+      },
+      "average_frp": {
+        "name": "Average FRP (MW)"
+      },
+      "high_confidence_fires": {
+        "name": "High confidence fires"
+      },
+      "fire_risk_level": {
+        "name": "Fire risk level"
+      }
+    },
+    "binary_sensor": {
+      "active_fire": {
+        "name": "Active fire"
       }
     }
   }

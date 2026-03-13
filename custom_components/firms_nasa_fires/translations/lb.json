@@ -1,0 +1,126 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "NASA FIRMS Feier",
+        "description": "Konfiguréiert Parameter fir Feier detektéiert vum NASA FIRMS ze kréien.",
+        "data": {
+          "api_key": "API Schlëssel",
+          "latitude": "Breetgrad",
+          "longitude": "Längtgrad",
+          "radius_km": "Sichradius an km (6.2-310.7 mi)",
+          "units": "Distanz Eenheet",
+          "min_confidence": "Minimal Vertrauensniveau",
+          "source": "Datenquellen",
+          "daynight": "Dag/Nuecht Filter",
+          "days": "Deeg zréck kucken",
+          "date": "Historesch Datum (optional)",
+          "scan_interval": "Update Intervall (Minutten)",
+          "min_frp": "Minimal FRP (MW)"
+        },
+        "data_description": {
+          "api_key": "Holt Äre Schlëssel op https://firms.modaps.eosdis.nasa.gov/api/",
+          "source": "Wielt eng oder méi Satellitquellen. Benotzt méi Quellen gëtt besser Zäitdeckung. Duplikater ginn automatesch geläscht.",
+          "daynight": "Nuecht Detektiounen hunn manner Falsch Positiv vun industriellen Quellen (Furen, Gasflaring, Stadliichter). 'All' ass recommandéiert fir Waldbrand Iwwerwaachung.",
+          "radius_km": "De Sichberäich ass ëmmer an km definéiert. Meilen beaflossen nëmmen wéi Feierdistanz an Entitéitszoustänn ugewise ginn.",
+          "date": "Loosst eidel fir 'Deeg zréck kucken' ze benotzen (Echtzäit Modus). Setzt en Datum (YYYY-MM-DD) fir eng spezifesch historesch Dag ze froen amplaz.",
+          "min_frp": "Feier Stralungskraaft: Energie déi de Satellit moosst datt d'Feier ausstralt, an Megawatt (MW). <10 MW = kleng Feier oder kontrolléiert Verbrennung. 10-100 MW = aktiv moderat Waldbrand. 100-1000 MW = grouss intensiv Feier. >1000 MW = extrem Feier (Kalifornien, Australien Skala). Setzt op 0 fir all Detektiounen ze weisen. Erhéijung op 15-30 MW läscht effektiv déi meescht industriell Falsch Positiv (Furen, Gasflaring, Stadliichter)."
+        }
+      }
+    },
+    "error": {
+      "api_key_invalid": "Den API Schlëssel ass ongülteg. Et muss op mannst 10 Zeechen laang sinn.",
+      "source_required": "Dir musst op mannst eng Datenquell wielen."
+    },
+    "abort": {
+      "already_configured": "Dës Integratioun ass scho konfiguréiert fir dës Plaz.",
+      "max_instances_reached": "Maximal Zuel vun Instanzen erreecht (10). Ewechzehuelen eng existéierend Instanz virum Addéiere vun enger neier."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Optiounen fir NASA FIRMS Feier",
+        "data": {
+          "radius_km": "Sichradius an km (6.2-310.7 mi)",
+          "units": "Distanz Eenheet",
+          "min_confidence": "Minimal Vertrauensniveau",
+          "source": "Datenquellen",
+          "daynight": "Dag/Nuecht Filter",
+          "days": "Deeg zréck kucken",
+          "date": "Historesch Datum (optional)",
+          "scan_interval": "Update Intervall (Minutten)",
+          "min_frp": "Minimal FRP (MW)"
+        },
+        "data_description": {
+          "source": "Wielt eng oder méi Satellitquellen. Duplikater ginn automatesch geläscht.",
+          "daynight": "Nuecht Detektiounen hunn manner Falsch Positiv vun industriellen Quellen (Furen, Gasflaring, Stadliichter). 'All' ass recommandéiert fir Waldbrand Iwwerwaachung.",
+          "radius_km": "De Sichberäich ass ëmmer an km definéiert. Meilen beaflossen nëmmen wéi Feierdistanz ugewise ginn.",
+          "date": "Loosst eidel fir Echtzäit Modus (Deeg zréck kucken). Setzt en Datum fir eng spezifesch historesch Dag ze froen.",
+          "min_frp": "Feier Stralungskraaft: Energie déi de Satellit moosst datt d'Feier ausstralt, an Megawatt (MW). <10 MW = kleng Feier oder kontrolléiert Verbrennung. 10-100 MW = aktiv moderat Waldbrand. 100-1000 MW = grouss intensiv Feier. >1000 MW = extrem Feier (Kalifornien, Australien Skala). Setzt op 0 fir all Detektiounen ze weisen. Erhéijung op 15-30 MW läscht effektiv déi meescht industriell Falsch Positiv (Furen, Gasflaring, Stadliichter)."
+        }
+      }
+    },
+    "error": {
+      "source_required": "Dir musst op mannst eng Datenquell wielen."
+    }
+  },
+  "selector": {
+    "units": {
+      "options": {
+        "km": "Kilometer",
+        "mi": "Meilen"
+      }
+    },
+    "confidence": {
+      "options": {
+        "l": "All (niddereg, nominal, héich)",
+        "n": "Nominal an héich (recommandéiert)",
+        "h": "Nëmme héich"
+      }
+    },
+    "source": {
+      "options": {
+        "viirs_snpp": "VIIRS SNPP — 375 m Resolutioun (Echtzäit)",
+        "modis": "MODIS — 1 km Resolutioun, méi Passagen/Dag (Echtzäit)",
+        "viirs_noaa20": "VIIRS NOAA-20 — 375 m Resolutioun (Echtzäit)",
+        "viirs_noaa21": "VIIRS NOAA-21 — 375 m, neieste Satellit (Echtzäit)",
+        "landsat": "Landsat 8/9 — 30 m Resolutioun, manner Passagen (Echtzäit)"
+      }
+    },
+    "daynight": {
+      "options": {
+        "all": "All (Dag an Nuecht) — recommandéiert",
+        "day": "Nëmme Dag",
+        "night": "Nëmme Nuecht — manner industriell Falsch Positiv"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "fires_last_24h": {
+        "name": "Feier an de leschten 24h"
+      },
+      "fires_daytime": {
+        "name": "Dag Feier"
+      },
+      "fires_nighttime": {
+        "name": "Nuecht Feier"
+      },
+      "average_frp": {
+        "name": "Duerchschnëttlech FRP (MW)"
+      },
+      "high_confidence_fires": {
+        "name": "Héich Vertrauen Feier"
+      },
+      "fire_risk_level": {
+        "name": "Feier Risiko Niveau"
+      }
+    },
+    "binary_sensor": {
+      "active_fire": {
+        "name": "Aktiv Feier"
+      }
+    }
+  }
+}

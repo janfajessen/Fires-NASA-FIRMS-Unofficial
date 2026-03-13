@@ -1,0 +1,126 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Incendii NASA FIRMS",
+        "description": "Configurează parametrii pentru a obține incendiile detectate de NASA FIRMS.",
+        "data": {
+          "api_key": "Cheie API",
+          "latitude": "Latitudine",
+          "longitude": "Longitudine",
+          "radius_km": "Rază de căutare în km (6.2-310.7 mi)",
+          "units": "Unitate de distanță",
+          "min_confidence": "Nivel minim de încredere",
+          "source": "Surse de date",
+          "daynight": "Filtru zi/noapte",
+          "days": "Zile pentru a privi înapoi",
+          "date": "Dată istorică (opțional)",
+          "scan_interval": "Interval de actualizare (minute)",
+          "min_frp": "FRP minim (MW)"
+        },
+        "data_description": {
+          "api_key": "Obține cheia ta la https://firms.modaps.eosdis.nasa.gov/api/",
+          "source": "Selectează una sau mai multe surse satelitare. Folosirea mai multor surse oferă o acoperire temporală mai bună. Duplicațele sunt eliminate automat.",
+          "daynight": "Detectările nocturne au mai puține fals pozitive de la surse industriale (cuptoare, ardere de gaz, lumini oraș). 'Toate' este recomandat pentru monitorizarea incendiilor de pădure.",
+          "radius_km": "Zona de căutare este întotdeauna definită în km. Milele afectează doar modul în care distanțele incendiilor sunt afișate în stările entităților.",
+          "date": "Lasă gol pentru a folosi 'zile pentru a privi înapoi' (mod în timp real). Setează o dată (YYYY-MM-DD) pentru a interoga o zi istorică specifică în locul acesteia.",
+          "min_frp": "Puterea Radiativă a Focului: energie măsurată de satelit emisă de incendiu, în Megawați (MW). <10 MW = incendiu mic sau ardere controlată. 10-100 MW = incendiu de pădure moderat activ. 100-1000 MW = incendiu mare intens. >1000 MW = incendiu extrem (scară California, Australia). Setează la 0 pentru a afișa toate detectările. Ridicarea la 15-30 MW elimină eficient majoritatea falselor pozitive industriale (cuptoare, ardere de gaz, lumini oraș)."
+        }
+      }
+    },
+    "error": {
+      "api_key_invalid": "Cheia API este invalidă. Trebuie să aibă cel puțin 10 caractere lungime.",
+      "source_required": "Trebuie să selectezi cel puțin o sursă de date."
+    },
+    "abort": {
+      "already_configured": "Această integrare este deja configurată pentru această locație.",
+      "max_instances_reached": "Numărul maxim de instanțe atins (10). Elimină o instanță existentă înainte de a adăuga una nouă."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Opțiuni pentru Incendii NASA FIRMS",
+        "data": {
+          "radius_km": "Rază de căutare în km (6.2-310.7 mi)",
+          "units": "Unitate de distanță",
+          "min_confidence": "Nivel minim de încredere",
+          "source": "Surse de date",
+          "daynight": "Filtru zi/noapte",
+          "days": "Zile pentru a privi înapoi",
+          "date": "Dată istorică (opțional)",
+          "scan_interval": "Interval de actualizare (minute)",
+          "min_frp": "FRP minim (MW)"
+        },
+        "data_description": {
+          "source": "Selectează una sau mai multe surse satelitare. Duplicațele sunt eliminate automat.",
+          "daynight": "Detectările nocturne au mai puține fals pozitive de la surse industriale (cuptoare, ardere de gaz, lumini oraș). 'Toate' este recomandat pentru monitorizarea incendiilor de pădure.",
+          "radius_km": "Zona de căutare este întotdeauna definită în km. Milele afectează doar modul în care distanțele incendiilor sunt afișate.",
+          "date": "Lasă gol pentru mod în timp real (zile pentru a privi înapoi). Setează o dată pentru a interoga o zi istorică specifică.",
+          "min_frp": "Puterea Radiativă a Focului: energie măsurată de satelit emisă de incendiu, în Megawați (MW). <10 MW = incendiu mic sau ardere controlată. 10-100 MW = incendiu de pădure moderat activ. 100-1000 MW = incendiu mare intens. >1000 MW = incendiu extrem (scară California, Australia). Setează la 0 pentru a afișa toate detectările. Ridicarea la 15-30 MW elimină eficient majoritatea falselor pozitive industriale (cuptoare, ardere de gaz, lumini oraș)."
+        }
+      }
+    },
+    "error": {
+      "source_required": "Trebuie să selectezi cel puțin o sursă de date."
+    }
+  },
+  "selector": {
+    "units": {
+      "options": {
+        "km": "Kilometri",
+        "mi": "Mile"
+      }
+    },
+    "confidence": {
+      "options": {
+        "l": "Toate (scăzut, nominal, înalt)",
+        "n": "Nominal și înalt (recomandat)",
+        "h": "Doar înalt"
+      }
+    },
+    "source": {
+      "options": {
+        "viirs_snpp": "VIIRS SNPP — rezoluție 375 m (timp real)",
+        "modis": "MODIS — rezoluție 1 km, mai multe treceri/zi (timp real)",
+        "viirs_noaa20": "VIIRS NOAA-20 — rezoluție 375 m (timp real)",
+        "viirs_noaa21": "VIIRS NOAA-21 — 375 m, cel mai nou satelit (timp real)",
+        "landsat": "Landsat 8/9 — rezoluție 30 m, mai puține treceri (timp real)"
+      }
+    },
+    "daynight": {
+      "options": {
+        "all": "Toate (zi și noapte) — recomandat",
+        "day": "Doar zi",
+        "night": "Doar noapte — mai puține fals pozitive industriale"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "fires_last_24h": {
+        "name": "Incendii în ultimele 24h"
+      },
+      "fires_daytime": {
+        "name": "Incendii diurne"
+      },
+      "fires_nighttime": {
+        "name": "Incendii nocturne"
+      },
+      "average_frp": {
+        "name": "FRP mediu (MW)"
+      },
+      "high_confidence_fires": {
+        "name": "Incendii cu încredere înaltă"
+      },
+      "fire_risk_level": {
+        "name": "Nivel de risc de incendiu"
+      }
+    },
+    "binary_sensor": {
+      "active_fire": {
+        "name": "Incendiu activ"
+      }
+    }
+  }
+}

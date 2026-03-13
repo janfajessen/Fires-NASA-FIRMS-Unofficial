@@ -1,0 +1,126 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "NASA FIRMS Brannar",
+        "description": "Konfigurer parameter for å hente brannar oppdaga av NASA FIRMS.",
+        "data": {
+          "api_key": "API-nøkkel",
+          "latitude": "Breiddegrad",
+          "longitude": "Lengdegrad",
+          "radius_km": "Søkeradius i km (6.2-310.7 mi)",
+          "units": "Avstandseining",
+          "min_confidence": "Minimum tillitsnivå",
+          "source": "Datakilder",
+          "daynight": "Dag/natt filter",
+          "days": "Dagar å sjå tilbake",
+          "date": "Historisk dato (valfri)",
+          "scan_interval": "Oppdateringsintervall (minutt)",
+          "min_frp": "Minimum FRP (MW)"
+        },
+        "data_description": {
+          "api_key": "Hent di nøkkel på https://firms.modaps.eosdis.nasa.gov/api/",
+          "source": "Vel ein eller fleire satellittkilder. Bruk av fleire kilder gjev betre tidsdekning. Duplikat vert automatisk fjerna.",
+          "daynight": "Nattoppdagingar har færre falske positivar frå industrielle kilder (ovnar, gassforbrenning, bylys). 'Alle' vert anbefalt for overvaking av skogbrannar.",
+          "radius_km": "Søkeområdet vert alltid definert i km. Mil påverkar berre korleis brannavstandar vert vist i entitetsstatar.",
+          "date": "La vere tom for å bruke 'dagar å sjå tilbake' (sanntidsmodus). Sett ein dato (YYYY-MM-DD) for å spørje etter ein spesifikk historisk dag i staden.",
+          "min_frp": "Brannstrålingskraft: energi satellitten måler at brannen sender ut, i megawatt (MW). <10 MW = liten brann eller kontrollert brenning. 10-100 MW = aktiv moderat skogbrann. 100-1000 MW = stor intens brann. >1000 MW = ekstrem brann (California, Australia skala). Sett til 0 for å vise alle oppdagingar. Auke til 15-30 MW fjernar effektivt dei fleste industrielle falske positivar (ovnar, gassforbrenning, bylys)."
+        }
+      }
+    },
+    "error": {
+      "api_key_invalid": "API-nøkkelen er ugyldig. Ho må vere minst 10 teikn lang.",
+      "source_required": "Du må velje minst ein datakilde."
+    },
+    "abort": {
+      "already_configured": "Denne integrasjonen er allereie konfigurert for denne plasseringa.",
+      "max_instances_reached": "Maksimalt antal instansar nådd (10). Fjern ein eksisterande instans før du legg til ein ny."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Val for NASA FIRMS Brannar",
+        "data": {
+          "radius_km": "Søkeradius i km (6.2-310.7 mi)",
+          "units": "Avstandseining",
+          "min_confidence": "Minimum tillitsnivå",
+          "source": "Datakilder",
+          "daynight": "Dag/natt filter",
+          "days": "Dagar å sjå tilbake",
+          "date": "Historisk dato (valfri)",
+          "scan_interval": "Oppdateringsintervall (minutt)",
+          "min_frp": "Minimum FRP (MW)"
+        },
+        "data_description": {
+          "source": "Vel ein eller fleire satellittkilder. Duplikat vert automatisk fjerna.",
+          "daynight": "Nattoppdagingar har færre falske positivar frå industrielle kilder (ovnar, gassforbrenning, bylys). 'Alle' vert anbefalt for overvaking av skogbrannar.",
+          "radius_km": "Søkeområdet vert alltid definert i km. Mil påverkar berre korleis brannavstandar vert vist.",
+          "date": "La vere tom for sanntidsmodus (dagar å sjå tilbake). Sett ein dato for å spørje etter ein spesifikk historisk dag.",
+          "min_frp": "Brannstrålingskraft: energi satellitten måler at brannen sender ut, i megawatt (MW). <10 MW = liten brann eller kontrollert brenning. 10-100 MW = aktiv moderat skogbrann. 100-1000 MW = stor intens brann. >1000 MW = ekstrem brann (California, Australia skala). Sett til 0 for å vise alle oppdagingar. Auke til 15-30 MW fjernar effektivt dei fleste industrielle falske positivar (ovnar, gassforbrenning, bylys)."
+        }
+      }
+    },
+    "error": {
+      "source_required": "Du må velje minst ein datakilde."
+    }
+  },
+  "selector": {
+    "units": {
+      "options": {
+        "km": "Kilometer",
+        "mi": "Mil"
+      }
+    },
+    "confidence": {
+      "options": {
+        "l": "Alle (låg, nominell, høg)",
+        "n": "Nominell og høg (anbefalt)",
+        "h": "Berre høg"
+      }
+    },
+    "source": {
+      "options": {
+        "viirs_snpp": "VIIRS SNPP — oppløysning 375 m (sanntid)",
+        "modis": "MODIS — oppløysning 1 km, fleire passeringar/dag (sanntid)",
+        "viirs_noaa20": "VIIRS NOAA-20 — oppløysning 375 m (sanntid)",
+        "viirs_noaa21": "VIIRS NOAA-21 — 375 m, nyaste satellitt (sanntid)",
+        "landsat": "Landsat 8/9 — oppløysning 30 m, færre passeringar (sanntid)"
+      }
+    },
+    "daynight": {
+      "options": {
+        "all": "Alle (dag og natt) — anbefalt",
+        "day": "Berre dag",
+        "night": "Berre natt — færre industrielle falske positivar"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "fires_last_24h": {
+        "name": "Brannar i dei siste 24 timane"
+      },
+      "fires_daytime": {
+        "name": "Dagbrannar"
+      },
+      "fires_nighttime": {
+        "name": "Nattbrannar"
+      },
+      "average_frp": {
+        "name": "Gjennomsnittleg FRP (MW)"
+      },
+      "high_confidence_fires": {
+        "name": "Høg tillit brannar"
+      },
+      "fire_risk_level": {
+        "name": "Brannrisikonivå"
+      }
+    },
+    "binary_sensor": {
+      "active_fire": {
+        "name": "Aktiv brann"
+      }
+    }
+  }
+}

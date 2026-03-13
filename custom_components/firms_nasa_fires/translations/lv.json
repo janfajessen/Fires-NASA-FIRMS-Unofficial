@@ -1,0 +1,126 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "NASA FIRMS Ugunis",
+        "description": "Konfigurējiet parametrus, lai iegūtu NASA FIRMS atklātos ugunis.",
+        "data": {
+          "api_key": "API Atslēga",
+          "latitude": "Platums",
+          "longitude": "Garums",
+          "radius_km": "Meklēšanas rādiuss km (6.2-310.7 mi)",
+          "units": "Attāluma vienība",
+          "min_confidence": "Minimālais uzticamības līmenis",
+          "source": "Datu avoti",
+          "daynight": "Diena/Nakts filtrs",
+          "days": "Dienas atpakaļ",
+          "date": "Vēsturiskais datums (pēc izvēles)",
+          "scan_interval": "Atjaunināšanas intervāls (minūtes)",
+          "min_frp": "Minimālais FRP (MW)"
+        },
+        "data_description": {
+          "api_key": "Iegūstiet savu atslēgu vietnē https://firms.modaps.eosdis.nasa.gov/api/",
+          "source": "Izvēlieties vienu vai vairākus satelītu avotus. Vairāku avotu izmantošana nodrošina labāku laika segumu. Dublikāti tiek automātiski noņemti.",
+          "daynight": "Nakts atklājumi ir mazāk viltus pozitīvu no industriāliem avotiem (krāsnis, gāzes dedzināšana, pilsētas gaismas). 'Visi' ieteicams mežu ugunsgrēku uzraudzībai.",
+          "radius_km": "Meklēšanas apgabals vienmēr tiek definēts km. Jūdzes ietekmē tikai to, kā uguns attālumi tiek parādīti entitātes stāvokļos.",
+          "date": "Atstājiet tukšu, lai izmantotu 'dienas atpakaļ' (reālā laika režīms). Iestatiet datumu (YYYY-MM-DD), lai vaicātu specifisku vēsturisku dienu vietā.",
+          "min_frp": "Uguns Radiācijas Jauda: enerģija, ko satelīts mēra, ka uguns izstaro, megavatos (MW). <10 MW = mazs uguns vai kontrolēta dedzināšana. 10-100 MW = aktīvs vidējs meža ugunsgrēks. 100-1000 MW = liels intensīvs uguns. >1000 MW = ekstrēms uguns (Kalifornijas, Austrālijas mērogs). Iestatiet uz 0, lai parādītu visus atklājumus. Palielinot līdz 15-30 MW efektīvi noņem lielāko daļu industriālo viltus pozitīvu (krāsnis, gāzes dedzināšana, pilsētas gaismas)."
+        }
+      }
+    },
+    "error": {
+      "api_key_invalid": "API atslēga ir nederīga. Tai jābūt vismaz 10 rakstzīmju garumā.",
+      "source_required": "Jums jāizvēlas vismaz viens datu avots."
+    },
+    "abort": {
+      "already_configured": "Šī integrācija jau ir konfigurēta šai vietai.",
+      "max_instances_reached": "Maksimālais instanču skaits sasniegts (10). Noņemiet esošo instanci pirms jaunas pievienošanas."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Opcijas NASA FIRMS Ugunīm",
+        "data": {
+          "radius_km": "Meklēšanas rādiuss km (6.2-310.7 mi)",
+          "units": "Attāluma vienība",
+          "min_confidence": "Minimālais uzticamības līmenis",
+          "source": "Datu avoti",
+          "daynight": "Diena/Nakts filtrs",
+          "days": "Dienas atpakaļ",
+          "date": "Vēsturiskais datums (pēc izvēles)",
+          "scan_interval": "Atjaunināšanas intervāls (minūtes)",
+          "min_frp": "Minimālais FRP (MW)"
+        },
+        "data_description": {
+          "source": "Izvēlieties vienu vai vairākus satelītu avotus. Dublikāti tiek automātiski noņemti.",
+          "daynight": "Nakts atklājumi ir mazāk viltus pozitīvu no industriāliem avotiem (krāsnis, gāzes dedzināšana, pilsētas gaismas). 'Visi' ieteicams mežu ugunsgrēku uzraudzībai.",
+          "radius_km": "Meklēšanas apgabals vienmēr tiek definēts km. Jūdzes ietekmē tikai to, kā uguns attālumi tiek parādīti.",
+          "date": "Atstājiet tukšu reālā laika režīmam (dienas atpakaļ). Iestatiet datumu specifiskai vēsturiskai dienai vaicājumam.",
+          "min_frp": "Uguns Radiācijas Jauda: enerģija, ko satelīts mēra, ka uguns izstaro, megavatos (MW). <10 MW = mazs uguns vai kontrolēta dedzināšana. 10-100 MW = aktīvs vidējs meža ugunsgrēks. 100-1000 MW = liels intensīvs uguns. >1000 MW = ekstrēms uguns (Kalifornijas, Austrālijas mērogs). Iestatiet uz 0, lai parādītu visus atklājumus. Palielinot līdz 15-30 MW efektīvi noņem lielāko daļu industriālo viltus pozitīvu (krāsnis, gāzes dedzināšana, pilsētas gaismas)."
+        }
+      }
+    },
+    "error": {
+      "source_required": "Jums jāizvēlas vismaz viens datu avots."
+    }
+  },
+  "selector": {
+    "units": {
+      "options": {
+        "km": "Kilometri",
+        "mi": "Jūdzes"
+      }
+    },
+    "confidence": {
+      "options": {
+        "l": "Visi (zems, nomināls, augsts)",
+        "n": "Nomināls un augsts (ieteicams)",
+        "h": "Tikai augsts"
+      }
+    },
+    "source": {
+      "options": {
+        "viirs_snpp": "VIIRS SNPP — 375 m izšķirtspēja (reālais laiks)",
+        "modis": "MODIS — 1 km izšķirtspēja, vairāk pārlidojumu/dienā (reālais laiks)",
+        "viirs_noaa20": "VIIRS NOAA-20 — 375 m izšķirtspēja (reālais laiks)",
+        "viirs_noaa21": "VIIRS NOAA-21 — 375 m, jaunākais satelīts (reālais laiks)",
+        "landsat": "Landsat 8/9 — 30 m izšķirtspēja, mazāk pārlidojumu (reālais laiks)"
+      }
+    },
+    "daynight": {
+      "options": {
+        "all": "Visi (diena un nakts) — ieteicams",
+        "day": "Tikai diena",
+        "night": "Tikai nakts — mazāk industriālo viltus pozitīvu"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "fires_last_24h": {
+        "name": "Ugunis pēdējās 24h"
+      },
+      "fires_daytime": {
+        "name": "Dienas ugunis"
+      },
+      "fires_nighttime": {
+        "name": "Nakts ugunis"
+      },
+      "average_frp": {
+        "name": "Vidējais FRP (MW)"
+      },
+      "high_confidence_fires": {
+        "name": "Augstas uzticamības ugunis"
+      },
+      "fire_risk_level": {
+        "name": "Uguns riska līmenis"
+      }
+    },
+    "binary_sensor": {
+      "active_fire": {
+        "name": "Aktīva uguns"
+      }
+    }
+  }
+}

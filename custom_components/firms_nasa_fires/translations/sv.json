@@ -1,0 +1,126 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "NASA FIRMS Bränder",
+        "description": "Konfigurera parametrar för att hämta bränder upptäckta av NASA FIRMS.",
+        "data": {
+          "api_key": "API-nyckel",
+          "latitude": "Latitud",
+          "longitude": "Longitud",
+          "radius_km": "Sökradie i km (6.2-310.7 mi)",
+          "units": "Avståndsenhet",
+          "min_confidence": "Minimal förtroendenivå",
+          "source": "Datakällor",
+          "daynight": "Dag/natt filter",
+          "days": "Dagar att titta tillbaka",
+          "date": "Historiskt datum (valfritt)",
+          "scan_interval": "Uppdateringsintervall (minuter)",
+          "min_frp": "Minimal FRP (MW)"
+        },
+        "data_description": {
+          "api_key": "Hämta din nyckel på https://firms.modaps.eosdis.nasa.gov/api/",
+          "source": "Välj en eller flera satellitkällor. Användning av flera källor ger bättre tidsbevakning. Duplikater tas bort automatiskt.",
+          "daynight": "Nattupptäckter har färre falska positiver från industriella källor (ugnar, gasförbränning, stadsljus). 'Alla' rekommenderas för övervakning av skogsbränder.",
+          "radius_km": "Sökområdet definieras alltid i km. Miles påverkar bara hur brandavstånd visas i entitetsstater.",
+          "date": "Lämna tomt för att använda 'dagar att titta tillbaka' (realtidsläge). Ställ in ett datum (YYYY-MM-DD) för att fråga en specifik historisk dag istället.",
+          "min_frp": "Brandstrålningskraft: energi som satelliten mäter att branden avger, i megawatt (MW). <10 MW = liten brand eller kontrollerad bränning. 10-100 MW = aktiv måttlig skogsbrand. 100-1000 MW = stor intensiv brand. >1000 MW = extrem brand (Kalifornien, Australien skala). Ställ in på 0 för att visa alla upptäckter. Öka till 15-30 MW tar effektivt bort de flesta industriella falska positiver (ugnar, gasförbränning, stadsljus)."
+        }
+      }
+    },
+    "error": {
+      "api_key_invalid": "API-nyckeln är ogiltig. Den måste vara minst 10 tecken lång.",
+      "source_required": "Du måste välja minst en datakälla."
+    },
+    "abort": {
+      "already_configured": "Denna integration är redan konfigurerad för denna plats.",
+      "max_instances_reached": "Maximalt antal instanser nått (10). Ta bort en befintlig instans innan du lägger till en ny."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Alternativ för NASA FIRMS Bränder",
+        "data": {
+          "radius_km": "Sökradie i km (6.2-310.7 mi)",
+          "units": "Avståndsenhet",
+          "min_confidence": "Minimal förtroendenivå",
+          "source": "Datakällor",
+          "daynight": "Dag/natt filter",
+          "days": "Dagar att titta tillbaka",
+          "date": "Historiskt datum (valfritt)",
+          "scan_interval": "Uppdateringsintervall (minuter)",
+          "min_frp": "Minimal FRP (MW)"
+        },
+        "data_description": {
+          "source": "Välj en eller flera satellitkällor. Duplikater tas bort automatiskt.",
+          "daynight": "Nattupptäckter har färre falska positiver från industriella källor (ugnar, gasförbränning, stadsljus). 'Alla' rekommenderas för övervakning av skogsbränder.",
+          "radius_km": "Sökområdet definieras alltid i km. Miles påverkar bara hur brandavstånd visas.",
+          "date": "Lämna tomt för realtidsläge (dagar att titta tillbaka). Ställ in ett datum för att fråga en specifik historisk dag.",
+          "min_frp": "Brandstrålningskraft: energi som satelliten mäter att branden avger, i megawatt (MW). <10 MW = liten brand eller kontrollerad bränning. 10-100 MW = aktiv måttlig skogsbrand. 100-1000 MW = stor intensiv brand. >1000 MW = extrem brand (Kalifornien, Australien skala). Ställ in på 0 för att visa alla upptäckter. Öka till 15-30 MW tar effektivt bort de flesta industriella falska positiver (ugnar, gasförbränning, stadsljus)."
+        }
+      }
+    },
+    "error": {
+      "source_required": "Du måste välja minst en datakälla."
+    }
+  },
+  "selector": {
+    "units": {
+      "options": {
+        "km": "Kilometer",
+        "mi": "Mil"
+      }
+    },
+    "confidence": {
+      "options": {
+        "l": "Alla (låg, nominell, hög)",
+        "n": "Nominell och hög (rekommenderad)",
+        "h": "Endast hög"
+      }
+    },
+    "source": {
+      "options": {
+        "viirs_snpp": "VIIRS SNPP — upplösning 375 m (realtid)",
+        "modis": "MODIS — upplösning 1 km, fler passager/dag (realtid)",
+        "viirs_noaa20": "VIIRS NOAA-20 — upplösning 375 m (realtid)",
+        "viirs_noaa21": "VIIRS NOAA-21 — 375 m, nyaste satellit (realtid)",
+        "landsat": "Landsat 8/9 — upplösning 30 m, färre passager (realtid)"
+      }
+    },
+    "daynight": {
+      "options": {
+        "all": "Alla (dag och natt) — rekommenderad",
+        "day": "Endast dag",
+        "night": "Endast natt — färre industriella falska positiver"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "fires_last_24h": {
+        "name": "Bränder de senaste 24h"
+      },
+      "fires_daytime": {
+        "name": "Dagbränder"
+      },
+      "fires_nighttime": {
+        "name": "Nattbränder"
+      },
+      "average_frp": {
+        "name": "Genomsnittlig FRP (MW)"
+      },
+      "high_confidence_fires": {
+        "name": "Hög förtroende bränder"
+      },
+      "fire_risk_level": {
+        "name": "Brandrisknivå"
+      }
+    },
+    "binary_sensor": {
+      "active_fire": {
+        "name": "Aktiv brand"
+      }
+    }
+  }
+}

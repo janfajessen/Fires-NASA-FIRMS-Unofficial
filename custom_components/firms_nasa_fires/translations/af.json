@@ -1,0 +1,126 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "NASA FIRMS Brande",
+        "description": "Konfigureer parameters om brande op te spoor deur NASA FIRMS.",
+        "data": {
+          "api_key": "API Sleutel",
+          "latitude": "Breedtegraad",
+          "longitude": "Lengtegraad",
+          "radius_km": "Soekradius in km (6.2-310.7 mi)",
+          "units": "Afstandseenheid",
+          "min_confidence": "Minimum vertroue vlak",
+          "source": "Databronne",
+          "daynight": "Dag/Nag filter",
+          "days": "Dae om terug te kyk",
+          "date": "Historiese datum (opsioneel)",
+          "scan_interval": "Opdateer interval (minute)",
+          "min_frp": "Minimum FRP (MW)"
+        },
+        "data_description": {
+          "api_key": "Kry jou sleutel by https://firms.modaps.eosdis.nasa.gov/api/",
+          "source": "Kies een of meer satellietbronne. Gebruik van meerdere bronne gee beter tydelike dekking (brande opgespoor op verskillende tye van die dag). Duplikate word outomaties verwyder.",
+          "daynight": "Nag opsporings het minder vals positiewe van industriële bronne (oonde, gasvlaming, stadsligte). 'Alle' word aanbeveel vir wildvuur monitering.",
+          "radius_km": "Die soekarea word altyd in km gedefinieer. Myles beïnvloed slegs hoe brandafstande in entiteitstate vertoon word.",
+          "date": "Laat leeg om 'dae om terug te kyk' te gebruik (real-time modus). Stel 'n datum (YYYY-MM-DD) om 'n spesifieke historiese dag te navrae in plaas.",
+          "min_frp": "Vuur Radiasie Krag: energie wat die satelliet meet die vuur uitstraal, in Megawatt (MW). <10 MW = klein vuur of beheerde brand. 10-100 MW = aktiewe matige wildvuur. 100-1000 MW = groot intense vuur. >1000 MW = ekstreme vuur (Kalifornië, Australië skaal). Stel na 0 om alle opsporings te wys. Verhoog na 15-30 MW verwyder effektief meeste industriële vals positiewe (oonde, gasvlaming, stadsligte)."
+        }
+      }
+    },
+    "error": {
+      "api_key_invalid": "Die API sleutel is ongeldig. Dit moet ten minste 10 karakters lank wees.",
+      "source_required": "Jy moet ten minste een databron kies."
+    },
+    "abort": {
+      "already_configured": "Hierdie integrasie is reeds gekonfigureer vir hierdie ligging.",
+      "max_instances_reached": "Maksimum aantal instansies bereik (10). Verwyder 'n bestaande instansie voor jy 'n nuwe een byvoeg."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Opsies vir NASA FIRMS Brande",
+        "data": {
+          "radius_km": "Soekradius in km (6.2-310.7 mi)",
+          "units": "Afstandseenheid",
+          "min_confidence": "Minimum vertroue vlak",
+          "source": "Databronne",
+          "daynight": "Dag/Nag filter",
+          "days": "Dae om terug te kyk",
+          "date": "Historiese datum (opsioneel)",
+          "scan_interval": "Opdateer interval (minute)",
+          "min_frp": "Minimum FRP (MW)"
+        },
+        "data_description": {
+          "source": "Kies een of meer satellietbronne. Duplikate word outomaties verwyder.",
+          "daynight": "Nag opsporings het minder vals positiewe van industriële bronne (oonde, gasvlaming, stadsligte). 'Alle' word aanbeveel vir wildvuur monitering.",
+          "radius_km": "Die soekarea word altyd in km gedefinieer. Myles beïnvloed slegs hoe brandafstande in entiteitstate vertoon word.",
+          "date": "Laat leeg vir real-time modus (dae om terug te kyk). Stel 'n datum om 'n spesifieke historiese dag te navrae.",
+          "min_frp": "Vuur Radiasie Krag: energie wat die satelliet meet die vuur uitstraal, in Megawatt (MW). <10 MW = klein vuur of beheerde brand. 10-100 MW = aktiewe matige wildvuur. 100-1000 MW = groot intense vuur. >1000 MW = ekstreme vuur (Kalifornië, Australië skaal). Stel na 0 om alle opsporings te wys. Verhoog na 15-30 MW verwyder effektief meeste industriële vals positiewe (oonde, gasvlaming, stadsligte)."
+        }
+      }
+    },
+    "error": {
+      "source_required": "Jy moet ten minste een databron kies."
+    }
+  },
+  "selector": {
+    "units": {
+      "options": {
+        "km": "Kilometers",
+        "mi": "Miles"
+      }
+    },
+    "confidence": {
+      "options": {
+        "l": "Alle (lae, nominale, hoë)",
+        "n": "Nominale en hoë (aanbeveel)",
+        "h": "Hoë alleen"
+      }
+    },
+    "source": {
+      "options": {
+        "viirs_snpp": "VIIRS SNPP — 375 m resolusie (real-time)",
+        "modis": "MODIS — 1 km resolusie, meer passe/dag (real-time)",
+        "viirs_noaa20": "VIIRS NOAA-20 — 375 m resolusie (real-time)",
+        "viirs_noaa21": "VIIRS NOAA-21 — 375 m, nuutste satelliet (real-time)",
+        "landsat": "Landsat 8/9 — 30 m resolusie, minder passe (real-time)"
+      }
+    },
+    "daynight": {
+      "options": {
+        "all": "Alle (dag en nag) — aanbeveel",
+        "day": "Dag alleen",
+        "night": "Nag alleen — minder industriële vals positiewe"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "fires_last_24h": {
+        "name": "Brande in laaste 24u"
+      },
+      "fires_daytime": {
+        "name": "Dagbrande"
+      },
+      "fires_nighttime": {
+        "name": "Nagbrande"
+      },
+      "average_frp": {
+        "name": "Gemiddelde FRP (MW)"
+      },
+      "high_confidence_fires": {
+        "name": "Hoë vertroue brande"
+      },
+      "fire_risk_level": {
+        "name": "Brandrisiko vlak"
+      }
+    },
+    "binary_sensor": {
+      "active_fire": {
+        "name": "Aktiewe brand"
+      }
+    }
+  }
+}

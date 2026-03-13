@@ -1,0 +1,126 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Incendios NASA FIRMS",
+        "description": "Configura os parámetros para obter os incendios detectados por NASA FIRMS.",
+        "data": {
+          "api_key": "Chave API",
+          "latitude": "Latitude",
+          "longitude": "Lonxitude",
+          "radius_km": "Radio de busca en km (6.2-310.7 mi)",
+          "units": "Unidade de distancia",
+          "min_confidence": "Nivel de confianza mínimo",
+          "source": "Fontes de datos",
+          "daynight": "Filtro día/noite",
+          "days": "Días para mirar atrás",
+          "date": "Data histórica (opcional)",
+          "scan_interval": "Intervalo de actualización (minutos)",
+          "min_frp": "FRP mínimo (MW)"
+        },
+        "data_description": {
+          "api_key": "Obtén a túa chave en https://firms.modaps.eosdis.nasa.gov/api/",
+          "source": "Selecciona unha ou máis fontes de satélites. Usar múltiples fontes proporciona mellor cobertura temporal. Os duplicados elimínanse automaticamente.",
+          "daynight": "As deteccións nocturnas teñen menos falsos positivos de fontes industriais (fornos, queima de gas, luces da cidade). 'Todos' recoméndase para o monitoreo de incendios forestais.",
+          "radius_km": "A área de busca sempre se define en km. As millas só afectan como se mostran as distancias dos incendios nos estados das entidades.",
+          "date": "Deixa baleiro para usar 'días para mirar atrás' (modo en tempo real). Establece unha data (YYYY-MM-DD) para consultar un día histórico específico no seu lugar.",
+          "min_frp": "Potencia Radiativa do Lume: enerxía que o satélite mide que emite o incendio, en Megawatts (MW). <10 MW = incendio pequeno ou queima controlada. 10-100 MW = incendio forestal moderado activo. 100-1000 MW = incendio grande intenso. >1000 MW = incendio extremo (escala de California, Australia). Establece en 0 para mostrar todas as deteccións. Elevar a 15-30 MW elimina efectivamente a maioría dos falsos positivos industriais (fornos, queima de gas, luces da cidade)."
+        }
+      }
+    },
+    "error": {
+      "api_key_invalid": "A chave API é inválida. Debe ter polo menos 10 caracteres de lonxitude.",
+      "source_required": "Debes seleccionar polo menos unha fonte de datos."
+    },
+    "abort": {
+      "already_configured": "Esta integración xa está configurada para esta localización.",
+      "max_instances_reached": "Número máximo de instancias alcanzado (10). Elimina unha instancia existente antes de engadir unha nova."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Opcións para Incendios NASA FIRMS",
+        "data": {
+          "radius_km": "Radio de busca en km (6.2-310.7 mi)",
+          "units": "Unidade de distancia",
+          "min_confidence": "Nivel de confianza mínimo",
+          "source": "Fontes de datos",
+          "daynight": "Filtro día/noite",
+          "days": "Días para mirar atrás",
+          "date": "Data histórica (opcional)",
+          "scan_interval": "Intervalo de actualización (minutos)",
+          "min_frp": "FRP mínimo (MW)"
+        },
+        "data_description": {
+          "source": "Selecciona unha ou máis fontes de satélites. Os duplicados elimínanse automaticamente.",
+          "daynight": "As deteccións nocturnas teñen menos falsos positivos de fontes industriais (fornos, queima de gas, luces da cidade). 'Todos' recoméndase para o monitoreo de incendios forestais.",
+          "radius_km": "A área de busca sempre se define en km. As millas só afectan como se mostran as distancias dos incendios.",
+          "date": "Deixa baleiro para modo en tempo real (días para mirar atrás). Establece unha data para consultar un día histórico específico.",
+          "min_frp": "Potencia Radiativa do Lume: enerxía que o satélite mide que emite o incendio, en Megawatts (MW). <10 MW = incendio pequeno ou queima controlada. 10-100 MW = incendio forestal moderado activo. 100-1000 MW = incendio grande intenso. >1000 MW = incendio extremo (escala de California, Australia). Establece en 0 para mostrar todas as deteccións. Elevar a 15-30 MW elimina efectivamente a maioría dos falsos positivos industriais (fornos, queima de gas, luces da cidade)."
+        }
+      }
+    },
+    "error": {
+      "source_required": "Debes seleccionar polo menos unha fonte de datos."
+    }
+  },
+  "selector": {
+    "units": {
+      "options": {
+        "km": "Quilómetros",
+        "mi": "Millas"
+      }
+    },
+    "confidence": {
+      "options": {
+        "l": "Todos (baixa, nominal, alta)",
+        "n": "Nominal e alta (recomendado)",
+        "h": "Alta só"
+      }
+    },
+    "source": {
+      "options": {
+        "viirs_snpp": "VIIRS SNPP — resolución de 375 m (tempo real)",
+        "modis": "MODIS — resolución de 1 km, máis pasadas/día (tempo real)",
+        "viirs_noaa20": "VIIRS NOAA-20 — resolución de 375 m (tempo real)",
+        "viirs_noaa21": "VIIRS NOAA-21 — 375 m, satélite máis novo (tempo real)",
+        "landsat": "Landsat 8/9 — resolución de 30 m, menos pasadas (tempo real)"
+      }
+    },
+    "daynight": {
+      "options": {
+        "all": "Todos (día e noite) — recomendado",
+        "day": "Día só",
+        "night": "Noite só — menos falsos positivos industriais"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "fires_last_24h": {
+        "name": "Incendios nas últimas 24h"
+      },
+      "fires_daytime": {
+        "name": "Incendios diúrnos"
+      },
+      "fires_nighttime": {
+        "name": "Incendios nocturnos"
+      },
+      "average_frp": {
+        "name": "FRP media (MW)"
+      },
+      "high_confidence_fires": {
+        "name": "Incendios de alta confianza"
+      },
+      "fire_risk_level": {
+        "name": "Nivel de risco de incendio"
+      }
+    },
+    "binary_sensor": {
+      "active_fire": {
+        "name": "Incendio activo"
+      }
+    }
+  }
+}

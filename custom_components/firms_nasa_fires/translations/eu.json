@@ -1,0 +1,126 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "NASA FIRMS Suteak",
+        "description": "Konfiguratu parametroak NASA FIRMS-ek detektatutako suteak lortzeko.",
+        "data": {
+          "api_key": "API gakoa",
+          "latitude": "Latitudea",
+          "longitude": "Longitudea",
+          "radius_km": "Bilaketa erradioa km-tan (6.2-310.7 mi)",
+          "units": "Distantzia unitatea",
+          "min_confidence": "Gutxieneko konfiantza maila",
+          "source": "Datu iturriak",
+          "daynight": "Eguna/Gaua iragazkia",
+          "days": "Atzera begiratzeko egunak",
+          "date": "Data historikoa (aukerakoa)",
+          "scan_interval": "Eguneratze tartea (minutuak)",
+          "min_frp": "Gutxieneko FRP (MW)"
+        },
+        "data_description": {
+          "api_key": "Lortu zure gakoa https://firms.modaps.eosdis.nasa.gov/api/-n",
+          "source": "Aukeratu satelite iturri bat edo gehiago. Iturri anitz erabiltzeak denbora estaldura hobea ematen du. Duplikatuak automatikoki kentzen dira.",
+          "daynight": "Gaueko detekzioek gutxiago faltsu positibo dituzte industria iturrietatik (labeak, gas erreketa, hiriko argiak). 'Guztiak' gomendatzen da baso suteen monitorizaziorako.",
+          "radius_km": "Bilaketa eremua beti km-tan definitzen da. Miliak soilik eragiten du suteen distantziak entitate egoeretan nola erakusten diren.",
+          "date": "Utzi hutsik 'atzera begiratzeko egunak' erabiltzeko (denbora errealeko modua). Ezarri data (YYYY-MM-DD) data historiko espezifiko bat kontsultatzeko ordez.",
+          "min_frp": "Sute Erradiazio Potentzia: sateliteak sutea igortzen duen energia neurtzen du, Megawattetan (MW). <10 MW = sute txikia edo erreketa kontrolatua. 10-100 MW = baso sute moderatu aktiboa. 100-1000 MW = sute handi intentsoa. >1000 MW = sute muturrekoa (Kalifornia, Australia eskala). Ezarri 0-ra detekzio guztiak erakusteko. 15-30 MW-ra igotzeak industria faltsu positibo gehienak kentzen ditu efektiboki (labeak, gas erreketa, hiriko argiak)."
+        }
+      }
+    },
+    "error": {
+      "api_key_invalid": "API gakoa baliogabea da. Gutxienez 10 karaktere izan behar ditu.",
+      "source_required": "Gutxienez datu iturri bat aukeratu behar duzu."
+    },
+    "abort": {
+      "already_configured": "Integrazio hau jada konfiguratu da kokaleku honetarako.",
+      "max_instances_reached": "Instanzia kopuru maximoa lortu da (10). Kendu existitzen den instanzia bat berri bat gehitu aurretik."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Aukerak NASA FIRMS Suteentzat",
+        "data": {
+          "radius_km": "Bilaketa erradioa km-tan (6.2-310.7 mi)",
+          "units": "Distantzia unitatea",
+          "min_confidence": "Gutxieneko konfiantza maila",
+          "source": "Datu iturriak",
+          "daynight": "Eguna/Gaua iragazkia",
+          "days": "Atzera begiratzeko egunak",
+          "date": "Data historikoa (aukerakoa)",
+          "scan_interval": "Eguneratze tartea (minutuak)",
+          "min_frp": "Gutxieneko FRP (MW)"
+        },
+        "data_description": {
+          "source": "Aukeratu satelite iturri bat edo gehiago. Duplikatuak automatikoki kentzen dira.",
+          "daynight": "Gaueko detekzioek gutxiago faltsu positibo dituzte industria iturrietatik (labeak, gas erreketa, hiriko argiak). 'Guztiak' gomendatzen da baso suteen monitorizaziorako.",
+          "radius_km": "Bilaketa eremua beti km-tan definitzen da. Miliak soilik eragiten du suteen distantziak nola erakusten diren.",
+          "date": "Utzi hutsik denbora errealeko modurako (atzera begiratzeko egunak). Ezarri data data historiko espezifiko bat kontsultatzeko.",
+          "min_frp": "Sute Erradiazio Potentzia: sateliteak sutea igortzen duen energia neurtzen du, Megawattetan (MW). <10 MW = sute txikia edo erreketa kontrolatua. 10-100 MW = baso sute moderatu aktiboa. 100-1000 MW = sute handi intentsoa. >1000 MW = sute muturrekoa (Kalifornia, Australia eskala). Ezarri 0-ra detekzio guztiak erakusteko. 15-30 MW-ra igotzeak industria faltsu positibo gehienak kentzen ditu efektiboki (labeak, gas erreketa, hiriko argiak)."
+        }
+      }
+    },
+    "error": {
+      "source_required": "Gutxienez datu iturri bat aukeratu behar duzu."
+    }
+  },
+  "selector": {
+    "units": {
+      "options": {
+        "km": "Kilometroak",
+        "mi": "Miliak"
+      }
+    },
+    "confidence": {
+      "options": {
+        "l": "Guztiak (baxua, nominala, altua)",
+        "n": "Nominala eta altua (gomendatua)",
+        "h": "Altua soilik"
+      }
+    },
+    "source": {
+      "options": {
+        "viirs_snpp": "VIIRS SNPP — 375 m ebazpena (denbora erreala)",
+        "modis": "MODIS — 1 km ebazpena, pasadak gehiago/egun (denbora erreala)",
+        "viirs_noaa20": "VIIRS NOAA-20 — 375 m ebazpena (denbora erreala)",
+        "viirs_noaa21": "VIIRS NOAA-21 — 375 m, satelite berriena (denbora erreala)",
+        "landsat": "Landsat 8/9 — 30 m ebazpena, pasadak gutxiago (denbora erreala)"
+      }
+    },
+    "daynight": {
+      "options": {
+        "all": "Guztiak (eguna eta gaua) — gomendatua",
+        "day": "Eguna soilik",
+        "night": "Gaua soilik — industria faltsu positibo gutxiago"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "fires_last_24h": {
+        "name": "Suteak azken 24 ordutan"
+      },
+      "fires_daytime": {
+        "name": "Eguneko suteak"
+      },
+      "fires_nighttime": {
+        "name": "Gaueko suteak"
+      },
+      "average_frp": {
+        "name": "Batez besteko FRP (MW)"
+      },
+      "high_confidence_fires": {
+        "name": "Konfiantza altuko suteak"
+      },
+      "fire_risk_level": {
+        "name": "Sute arrisku maila"
+      }
+    },
+    "binary_sensor": {
+      "active_fire": {
+        "name": "Sute aktiboa"
+      }
+    }
+  }
+}

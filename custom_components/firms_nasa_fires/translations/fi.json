@@ -1,0 +1,126 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "NASA FIRMS Palot",
+        "description": "Määritä parametrit NASA FIRMSin havaitsemien palojen saamiseksi.",
+        "data": {
+          "api_key": "API-avain",
+          "latitude": "Leveysaste",
+          "longitude": "Pituusaste",
+          "radius_km": "Hakusäde km (6.2-310.7 mi)",
+          "units": "Etäisyysyksikkö",
+          "min_confidence": "Vähimmäisluottamustaso",
+          "source": "Tietolähteet",
+          "daynight": "Päivä/yö suodatin",
+          "days": "Päiviä taaksepäin",
+          "date": "Historiallinen päivämäärä (valinnainen)",
+          "scan_interval": "Päivitysväli (minuutit)",
+          "min_frp": "Vähimmäis FRP (MW)"
+        },
+        "data_description": {
+          "api_key": "Hanki avain osoitteesta https://firms.modaps.eosdis.nasa.gov/api/",
+          "source": "Valitse yksi tai useampi satelliittilähde. Useiden lähteiden käyttö antaa paremman ajallisen kattavuuden. Kaksoiskappaleet poistetaan automaattisesti.",
+          "daynight": "Yöhavainnoilla on vähemmän vääriä positiivisia teollisuulähteistä (uunit, kaasun poltto, kaupungin valot). 'Kaikki' suositellaan metsäpalojen seurantaan.",
+          "radius_km": "Hakualue määritellään aina km:ssä. Mailit vaikuttavat vain siihen, miten paloetäisyydet näytetään entiteettitiloissa.",
+          "date": "Jätä tyhjäksi käyttääksesi 'päiviä taaksepäin' (reaaliaikainen tila). Aseta päivämäärä (YYYY-MM-DD) kyselyyn tietylle historialliselle päivälle sen sijaan.",
+          "min_frp": "Palon säteilyteho: energia, jonka satelliitti mittaa palon lähettävän, megawateissa (MW). <10 MW = pieni palo tai hallittu poltto. 10-100 MW = aktiivinen kohtalainen metsäpalo. 100-1000 MW = suuri voimakas palo. >1000 MW = äärimmäinen palo (Kalifornia, Australia mittakaava). Aseta 0 näyttääksesi kaikki havainnot. Nostaminen 15-30 MW:aan poistaa tehokkaasti useimmat teollisuuden väärät positiiviset (uunit, kaasun poltto, kaupungin valot)."
+        }
+      }
+    },
+    "error": {
+      "api_key_invalid": "API-avain on virheellinen. Sen on oltava vähintään 10 merkkiä pitkä.",
+      "source_required": "Sinun on valittava vähintään yksi tietolähde."
+    },
+    "abort": {
+      "already_configured": "Tämä integraatio on jo määritetty tälle sijainnille.",
+      "max_instances_reached": "Maksimi instanssien määrä saavutettu (10). Poista olemassa oleva instanssi ennen uuden lisäämistä."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Vaihtoehdot NASA FIRMS Paloille",
+        "data": {
+          "radius_km": "Hakusäde km (6.2-310.7 mi)",
+          "units": "Etäisyysyksikkö",
+          "min_confidence": "Vähimmäisluottamustaso",
+          "source": "Tietolähteet",
+          "daynight": "Päivä/yö suodatin",
+          "days": "Päiviä taaksepäin",
+          "date": "Historiallinen päivämäärä (valinnainen)",
+          "scan_interval": "Päivitysväli (minuutit)",
+          "min_frp": "Vähimmäis FRP (MW)"
+        },
+        "data_description": {
+          "source": "Valitse yksi tai useampi satelliittilähde. Kaksoiskappaleet poistetaan automaattisesti.",
+          "daynight": "Yöhavainnoilla on vähemmän vääriä positiivisia teollisuulähteistä (uunit, kaasun poltto, kaupungin valot). 'Kaikki' suositellaan metsäpalojen seurantaan.",
+          "radius_km": "Hakualue määritellään aina km:ssä. Mailit vaikuttavat vain siihen, miten paloetäisyydet näytetään.",
+          "date": "Jätä tyhjäksi reaaliaikaiselle tilalle (päiviä taaksepäin). Aseta päivämäärä kyselyyn tietylle historialliselle päivälle.",
+          "min_frp": "Palon säteilyteho: energia, jonka satelliitti mittaa palon lähettävän, megawateissa (MW). <10 MW = pieni palo tai hallittu poltto. 10-100 MW = aktiivinen kohtalainen metsäpalo. 100-1000 MW = suuri voimakas palo. >1000 MW = äärimmäinen palo (Kalifornia, Australia mittakaava). Aseta 0 näyttääksesi kaikki havainnot. Nostaminen 15-30 MW:aan poistaa tehokkaasti useimmat teollisuuden väärät positiiviset (uunit, kaasun poltto, kaupungin valot)."
+        }
+      }
+    },
+    "error": {
+      "source_required": "Sinun on valittava vähintään yksi tietolähde."
+    }
+  },
+  "selector": {
+    "units": {
+      "options": {
+        "km": "Kilometrit",
+        "mi": "Mailit"
+      }
+    },
+    "confidence": {
+      "options": {
+        "l": "Kaikki (matala, nimellinen, korkea)",
+        "n": "Nimellinen ja korkea (suositeltu)",
+        "h": "Vain korkea"
+      }
+    },
+    "source": {
+      "options": {
+        "viirs_snpp": "VIIRS SNPP — 375 m resoluutio (reaaliaika)",
+        "modis": "MODIS — 1 km resoluutio, enemmän lentoja/päivä (reaaliaika)",
+        "viirs_noaa20": "VIIRS NOAA-20 — 375 m resoluutio (reaaliaika)",
+        "viirs_noaa21": "VIIRS NOAA-21 — 375 m, uusin satelliitti (reaaliaika)",
+        "landsat": "Landsat 8/9 — 30 m resoluutio, vähemmän lentoja (reaaliaika)"
+      }
+    },
+    "daynight": {
+      "options": {
+        "all": "Kaikki (päivä ja yö) — suositeltu",
+        "day": "Vain päivä",
+        "night": "Vain yö — vähemmän teollisuuden vääriä positiivisia"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "fires_last_24h": {
+        "name": "Palot viimeisten 24 tunnin aikana"
+      },
+      "fires_daytime": {
+        "name": "Päiväpalot"
+      },
+      "fires_nighttime": {
+        "name": "Yöpalot"
+      },
+      "average_frp": {
+        "name": "Keskimääräinen FRP (MW)"
+      },
+      "high_confidence_fires": {
+        "name": "Korkean luottamuksen palot"
+      },
+      "fire_risk_level": {
+        "name": "Paloriskitaso"
+      }
+    },
+    "binary_sensor": {
+      "active_fire": {
+        "name": "Aktiivinen palo"
+      }
+    }
+  }
+}

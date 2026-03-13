@@ -1,0 +1,126 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "NASA FIRMS Tulekahjud",
+        "description": "Seadistage parameetrid NASA FIRMS-i tuvastatud tulekahjude saamiseks.",
+        "data": {
+          "api_key": "API võti",
+          "latitude": "Laiuskraad",
+          "longitude": "Pikkuskraad",
+          "radius_km": "Otsingu raadius km (6.2-310.7 mi)",
+          "units": "Kauguse ühik",
+          "min_confidence": "Minimaalne usaldustase",
+          "source": "Andmeallikad",
+          "daynight": "Päev/öö filter",
+          "days": "Päevad tagasi",
+          "date": "Ajalooline kuupäev (valikuline)",
+          "scan_interval": "Uuendamise intervall (minutid)",
+          "min_frp": "Minimaalne FRP (MW)"
+        },
+        "data_description": {
+          "api_key": "Hankige oma võti aadressilt https://firms.modaps.eosdis.nasa.gov/api/",
+          "source": "Valige üks või mitu satelliidiallikat. Mitme allika kasutamine annab parema ajakatte. Duplikaadid eemaldatakse automaatselt.",
+          "daynight": "Öised tuvastused on vähem vale-positiivseid tööstusallikatest (ahjud, gaasipõletus, linna tuled). 'Kõik' soovitatakse metsatulekahjude jälgimiseks.",
+          "radius_km": "Otsinguala määratletakse alati km-des. Miilid mõjutavad ainult, kuidas tulekahjude kaugusi kuvatakse olekutes.",
+          "date": "Jätke tühjaks, et kasutada 'päevad tagasi' (reaalajas režiim). Määrige kuupäev (YYYY-MM-DD), et päringut teha konkreetsele ajaloolisele päevale.",
+          "min_frp": "Tulekahju kiirgusvõimsus: energia, mida satelliit mõõdab tulekahju kiirgavat, megavattides (MW). <10 MW = väike tulekahju või kontrollitud põletus. 10-100 MW = aktiivne keskmine metsatulekahju. 100-1000 MW = suur intensiivne tulekahju. >1000 MW = äärmuslik tulekahju (California, Austraalia skaala). Määrige 0-ks, et näidata kõiki tuvastusi. Tõstmine 15-30 MW-ni eemaldab efektiivselt enamiku tööstuslikest vale-positiivsetest (ahjud, gaasipõletus, linna tuled)."
+        }
+      }
+    },
+    "error": {
+      "api_key_invalid": "API võti on kehtetu. See peab olema vähemalt 10 tähemärki pikk.",
+      "source_required": "Peate valima vähemalt ühe andmeallika."
+    },
+    "abort": {
+      "already_configured": "See integreerimine on juba seadistatud selle asukoha jaoks.",
+      "max_instances_reached": "Maksimaalne instantside arv on saavutatud (10). Eemaldage olemasolev instants enne uue lisamist."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Valikud NASA FIRMS Tulekahjude jaoks",
+        "data": {
+          "radius_km": "Otsingu raadius km (6.2-310.7 mi)",
+          "units": "Kauguse ühik",
+          "min_confidence": "Minimaalne usaldustase",
+          "source": "Andmeallikad",
+          "daynight": "Päev/öö filter",
+          "days": "Päevad tagasi",
+          "date": "Ajalooline kuupäev (valikuline)",
+          "scan_interval": "Uuendamise intervall (minutid)",
+          "min_frp": "Minimaalne FRP (MW)"
+        },
+        "data_description": {
+          "source": "Valige üks või mitu satelliidiallikat. Duplikaadid eemaldatakse automaatselt.",
+          "daynight": "Öised tuvastused on vähem vale-positiivseid tööstusallikatest (ahjud, gaasipõletus, linna tuled). 'Kõik' soovitatakse metsatulekahjude jälgimiseks.",
+          "radius_km": "Otsinguala määratletakse alati km-des. Miilid mõjutavad ainult, kuidas tulekahjude kaugusi kuvatakse.",
+          "date": "Jätke tühjaks reaalaegse režiimi jaoks (päevad tagasi). Määrige kuupäev konkreetse ajaloolise päeva päringuks.",
+          "min_frp": "Tulekahju kiirgusvõimsus: energia, mida satelliit mõõdab tulekahju kiirgavat, megavattides (MW). <10 MW = väike tulekahju või kontrollitud põletus. 10-100 MW = aktiivne keskmine metsatulekahju. 100-1000 MW = suur intensiivne tulekahju. >1000 MW = äärmuslik tulekahju (California, Austraalia skaala). Määrige 0-ks, et näidata kõiki tuvastusi. Tõstmine 15-30 MW-ni eemaldab efektiivselt enamiku tööstuslikest vale-positiivsetest (ahjud, gaasipõletus, linna tuled)."
+        }
+      }
+    },
+    "error": {
+      "source_required": "Peate valima vähemalt ühe andmeallika."
+    }
+  },
+  "selector": {
+    "units": {
+      "options": {
+        "km": "Kilomeetrid",
+        "mi": "Miilid"
+      }
+    },
+    "confidence": {
+      "options": {
+        "l": "Kõik (madal, nominaalne, kõrge)",
+        "n": "Nominaalne ja kõrge (soovitatav)",
+        "h": "Ainult kõrge"
+      }
+    },
+    "source": {
+      "options": {
+        "viirs_snpp": "VIIRS SNPP — 375 m resolutsioon (reaalajas)",
+        "modis": "MODIS — 1 km resolutsioon, rohkem läbimisi/päevas (reaalajas)",
+        "viirs_noaa20": "VIIRS NOAA-20 — 375 m resolutsioon (reaalajas)",
+        "viirs_noaa21": "VIIRS NOAA-21 — 375 m, uusim satelliit (reaalajas)",
+        "landsat": "Landsat 8/9 — 30 m resolutsioon, vähem läbimisi (reaalajas)"
+      }
+    },
+    "daynight": {
+      "options": {
+        "all": "Kõik (päev ja öö) — soovitatav",
+        "day": "Ainult päev",
+        "night": "Ainult öö — vähem tööstuslikke vale-positiivseid"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "fires_last_24h": {
+        "name": "Tulekahjud viimase 24 tunni jooksul"
+      },
+      "fires_daytime": {
+        "name": "Päevased tulekahjud"
+      },
+      "fires_nighttime": {
+        "name": "Öised tulekahjud"
+      },
+      "average_frp": {
+        "name": "Keskmine FRP (MW)"
+      },
+      "high_confidence_fires": {
+        "name": "Kõrge usaldusega tulekahjud"
+      },
+      "fire_risk_level": {
+        "name": "Tulekahju riskitase"
+      }
+    },
+    "binary_sensor": {
+      "active_fire": {
+        "name": "Aktiivne tulekahju"
+      }
+    }
+  }
+}
