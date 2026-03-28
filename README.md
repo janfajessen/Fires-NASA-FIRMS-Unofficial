@@ -140,7 +140,7 @@ Each instance runs its own independent update schedule — they do not interfere
 | `scan` / `track` | Pixel size at detection angle |
 | `attribution` | Data credit (NASA FIRMS) |
 
-### Automation Example
+### Automation Examples
 
 ```yaml
 automation:
@@ -158,6 +158,54 @@ automation:
           message: >
             {{ trigger.to_state.name }} detected
             {{ trigger.to_state.state }} km away.
+```
+
+### — Fire detected within your FIRMS radius
+
+```yaml
+- alias: "FIRMS — Fire detected nearby"
+  triggers:
+    - trigger: geo_location
+      source: firms_nasa_fires
+      zone: zone.home
+      event: enter
+  actions:
+    - action: notify.telegram_jan
+      data:
+        title: "🔥 Fire Detected Nearby"
+        message: >
+          NASA FIRMS detected a fire near your location.
+          Distance: {{ trigger.to_state.state }} {{ trigger.to_state.attributes.unit_of_measurement }}
+          {% if state_attr(trigger.entity_id, 'frp') %}
+          Fire Radiative Power: {{ state_attr(trigger.entity_id, 'frp') }} MW
+          {% endif %}
+          {% if state_attr(trigger.entity_id, 'brightness') %}
+          Brightness: {{ state_attr(trigger.entity_id, 'brightness') }} K
+          {% endif %}
+```
+
+### — High intensity fire (FRP > 100 MW)
+
+```yaml
+- alias: "FIRMS — High intensity fire nearby"
+  triggers:
+    - trigger: geo_location
+      source: firms_nasa_fires
+      zone: zone.home
+      event: enter
+  conditions:
+    - condition: template
+      value_template: "{{ state_attr(trigger.entity_id, 'frp') | float(0) > 100 }}"
+  actions:
+    - action: notify.telegram_jan
+      data:
+        title: "🔥🔥 HIGH INTENSITY FIRE NEARBY"
+        message: >
+          NASA FIRMS: HIGH INTENSITY fire detected!
+          Distance: {{ trigger.to_state.state }} {{ trigger.to_state.attributes.unit_of_measurement }}
+          FRP: {{ state_attr(trigger.entity_id, 'frp') }} MW
+          Satellite: {{ state_attr(trigger.entity_id, 'satellite') | default('unknown') }}
+          ⚠️ Check local emergency services immediately.
 ```
 
 ---
