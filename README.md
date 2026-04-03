@@ -3,7 +3,7 @@
 ## custom component <br> for Home Assistant
 
 Fire Information for Resource Management System
-
+<div align="center">
 <a href="https://firms.modaps.eosdis.nasa.gov">
   <img src="brands/logo.png" width="450"/>
 </a>
@@ -212,6 +212,7 @@ automation:
 <a>
   <img src="brands/icon.png" width="100"/>
 </a>
+
 ## Support & Donations
 
 If you like this integration, consider supporting development!
