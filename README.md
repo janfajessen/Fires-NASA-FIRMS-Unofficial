@@ -7,7 +7,7 @@
 Fire Information for Resource Management System
 
 <a href="https://firms.modaps.eosdis.nasa.gov">
-  <img src="brands/logo.png" width="450"/>
+  <img src="brands/logo@2x.png" width="450"/>
 </a>
 
 ![Version](https://img.shields.io/badge/version-1.5.24-blue?style=for-the-badge)
