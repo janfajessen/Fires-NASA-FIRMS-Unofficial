@@ -1,11 +1,11 @@
 {
   "domain": "firms_nasa_fires",
-  "name": "Fires NASA FIRMS (Unofficial)",
+  "name": "World Fires NASA FIRMS",
   "codeowners": ["@janfajessen"],
   "config_flow": true,
   "reconfigure": false,
   "dependencies": [],
-  "documentation": "https://github.com/janfajessen/fires_nasa_firms_unofficial",
+  "documentation": "https://github.com/janfajessen/World-Fires-NASA-FIRMS---Home-Assistant",
   "integration_type": "service",
   "iot_class": "cloud_polling",
   "requirements": ["aiohttp>=3.8.0", "haversine>=2.8.0"],
