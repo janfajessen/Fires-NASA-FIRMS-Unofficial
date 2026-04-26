@@ -95,7 +95,7 @@ Using multiple sources together gives better temporal coverage (fires detected a
 ## Configuration
 
 <a>
-<img src="https://raw.githubusercontent.com/janfajessen/Fires-NASA-FIRMS-Unofficial/refs/heads/main/config_flow.png" width="300"/>
+<img src="https://github.com/janfajessen/World-Fires-NASA-FIRMS---Home-Assistant/blob/52e6a59cb7bc18fc8be94a3aebe6fb2f1d20e0b5/screenshots/config_flow.png" width="30%"/>
 </a>
 
 Go to **Settings > Devices & Services > Add Integration > NASA FIRMS Fires (Unofficial)**.
@@ -218,9 +218,11 @@ automation:
 ```
 
 ---
+
 <a>
-  <img src="brands/icon.png" width="100"/>
+  <img src="https://github.com/janfajessen/World-Fires-NASA-FIRMS---Home-Assistant/blob/e462aa237589eb63e1c5dacdd2cdb91fce908734/brand/icon%402x.png" width="100"/>
 </a>
+
 
 ## Support & Donations
 
@@ -238,7 +240,7 @@ Issues? Open one on [GitHub](https://github.com/janfajessen/World-Fires-NASA-FIR
 > This integration is for personal and educational use only. Data is provided by NASA FIRMS.
 
 <a href="https://firms.modaps.eosdis.nasa.gov/map/#d:24hrs;@20.1,31.3,4.5z">
-  <img src="https://raw.githubusercontent.com/janfajessen/Fires-NASA-FIRMS-Unofficial/refs/heads/main/Map_NASA_FIRMS.png" width="200"/>
+  <img src="https://github.com/janfajessen/World-Fires-NASA-FIRMS---Home-Assistant/blob/52e6a59cb7bc18fc8be94a3aebe6fb2f1d20e0b5/screenshots/Map_NASA_FIRMS.png" width="200"/>
 </a>
 
 *NASA FIRMS web page*
