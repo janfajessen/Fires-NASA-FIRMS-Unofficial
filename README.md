@@ -7,7 +7,7 @@
 Fire Information for Resource Management System
 
 <a href="https://firms.modaps.eosdis.nasa.gov">
-  <img src="brands/logo@2x.png" width="450"/>
+  <img src="https://github.com/janfajessen/World-Fires-NASA-FIRMS---Home-Assistant/blob/e462aa237589eb63e1c5dacdd2cdb91fce908734/brand/logo%402x.png" width="450"/>
 </a>
 
 ![Version](https://img.shields.io/badge/version-1.5.24-blue?style=for-the-badge)
@@ -78,6 +78,10 @@ Using multiple sources together gives better temporal coverage (fires detected a
 5. Restart Home Assistant.
 6. Add the integration: **Settings > Devices & Services > Add Integration > NASA FIRMS Fires (Unofficial)**.
 
+<a>
+  <img src="https://github.com/janfajessen/World-Fires-NASA-FIRMS---Home-Assistant/blob/e462aa237589eb63e1c5dacdd2cdb91fce908734/brand/icon%402x.png" width="100"/>
+</a>
+
 ### Manual Installation
 
 1. Download or clone this repository.
@@ -85,9 +89,7 @@ Using multiple sources together gives better temporal coverage (fires detected a
 3. Restart Home Assistant.
 4. Add the integration: **Settings > Devices & Services > Add Integration > NASA FIRMS Fires (Unofficial)**.
 
-<a>
-  <img src="brands/icon.png" width="100"/>
-</a>
+
 ---
 
 ## Configuration
